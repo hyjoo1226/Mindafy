@@ -1,6 +1,6 @@
 <template>
 <div>
-    <h1>TestList</h1>
+    <h3>TestList</h3>
     <TestListItem v-for="test in store.tests" :key="test.id" :test="test"/>
 </div>
 </template>
