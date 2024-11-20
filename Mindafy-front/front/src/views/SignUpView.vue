@@ -26,14 +26,14 @@ const password1 = ref(null)
 const password2 = ref(null)
 
 const store = useCounterStore()
-const signUp = function(){
-    const payload = {
-      username: username.value,
-      password1: password1.value,
-      password2: password2.value
-    }
-    store.signUp(payload)
-}
+// const signUp = function(){
+//     const payload = {
+//       username: username.value,
+//       password1: password1.value,
+//       password2: password2.value
+//     }
+//     store.signUp(payload)
+// }
 </script>
 
 <style scoped>
