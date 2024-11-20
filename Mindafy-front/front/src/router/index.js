@@ -1,4 +1,6 @@
 import DetailView from '@/views/DetailView.vue'
+import LogInView from '@/views/LogInView.vue'
+import SignUpView from '@/views/SignUpView.vue'
 import StartView from '@/views/StartView.vue'
 import SurveyView from '@/views/SurveyView.vue'
 import TestView from '@/views/TestView.vue'
@@ -28,13 +30,22 @@ const router = createRouter({
       path:'/detail/:testId',
       name:'detail',
       component: DetailView,
-      props: true, // 활성화
     },
     {
       path:'/survey/:testId',
       name:'survey',
       component: SurveyView
     },
+    {
+      path:'/signup',
+      name:'signup',
+      component:SignUpView
+    },
+    {
+      path:'/login',
+      name:'login',
+      component:LogInView
+    }
   ],
 })
 

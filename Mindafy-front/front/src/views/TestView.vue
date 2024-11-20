@@ -1,6 +1,12 @@
 <template>
 <div>
-    <RouterLink :to="{name:'user'}">MyPage</RouterLink>
+    <nav>
+        <RouterLink :to="{name:'user'}">MyPage</RouterLink>
+        <span> | </span>
+        <RouterLink :to="{name:'signup'}">SignUp</RouterLink>
+        <span> | </span>
+        <RouterLink :to="{name:'login'}">LogIn</RouterLink>
+    </nav>
     <h1>TestPage</h1>
     <TestList/>
 </div>
