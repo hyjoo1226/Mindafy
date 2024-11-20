@@ -12,8 +12,8 @@ const props = defineProps({
     test:Object
 })
 const route = useRouter()
-const onClick = function(testId){
-    route.push({name:'detail',params:{testId}})
+const onClick = function(id){
+    route.push({name:'detail',params:{id:id}})
 
 }
 </script>

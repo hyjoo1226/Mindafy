@@ -14,8 +14,12 @@
 
 <script setup>
 import TestList from '@/components/TestList.vue';
-
-
+import { useCounterStore } from '@/stores/counter';
+import { onMounted } from 'vue'
+const store = useCounterStore()
+onMounted(()=>{
+    store.getTests()
+})
 </script>
 
 <style scoped>
