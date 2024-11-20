@@ -25,13 +25,13 @@ const router = createRouter({
       component:UserView
     },
     {
-      path:'/detail/:testname',
+      path:'/detail/:testId',
       name:'detail',
       component: DetailView,
       props: true, // 활성화
     },
     {
-      path:'/survey',
+      path:'/survey/:testId',
       name:'survey',
       component: SurveyView
     },
