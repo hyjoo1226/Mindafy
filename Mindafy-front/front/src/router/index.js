@@ -27,15 +27,15 @@ const router = createRouter({
       component:UserView
     },
     {
-      path:'/detail/:testId',
+      path:'/tests/:id',
       name:'detail',
       component: DetailView,
     },
-    {
-      path:'/survey/:testId',
-      name:'survey',
-      component: SurveyView
-    },
+    // {
+    //   path:'/survey/:id',
+    //   name:'survey',
+    //   component: SurveyView
+    // },
     {
       path:'/signup',
       name:'signup',
