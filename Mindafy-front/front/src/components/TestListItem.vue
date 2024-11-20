@@ -1,8 +1,7 @@
 <template>
 <div>
-    <h5 @click="onClick(test.title)">테스트 제목 : {{ test.title }}</h5>
-    <!-- {{ test.content }} 이부분이 어떻게 정보를 불러와야할지 모르겠어 -->
-    <p>테스트 설명 : {{ test.content }}</p>
+    <h5 @click="onClick(test.id)">테스트 제목 : {{ test.title }}</h5>
+    <p>테스트 설명 : {{ test.description }}</p>
 
 </div>
 </template>
@@ -13,8 +12,9 @@ const props = defineProps({
     test:Object
 })
 const route = useRouter()
-const onClick = function(testname){
-    route.push({name:'detail', params:{testname:testname}})
+const onClick = function(testId){
+    route.push({name:'detail',params:{testId}})
+
 }
 </script>
 

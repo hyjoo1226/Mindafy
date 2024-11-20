@@ -1,7 +1,7 @@
 <template>
 <div>
-    <h1>TestPage</h1>
     <RouterLink :to="{name:'user'}">MyPage</RouterLink>
+    <h1>TestPage</h1>
     <TestList/>
 </div>
 </template>
