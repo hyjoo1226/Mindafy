@@ -1,10 +1,7 @@
-from rest_framework.response import Response
-
 from rest_framework import serializers
 from dj_rest_auth.registration.serializers import RegisterSerializer
 from dj_rest_auth.serializers import LoginSerializer
 from rest_framework.exceptions import ValidationError
-from django.contrib.auth import authenticate
 from .models import User
 
 class CustomRegisterSerializer(RegisterSerializer):

@@ -4,7 +4,7 @@ from rest_framework import status
 
 from rest_framework.decorators import authentication_classes, permission_classes
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 
 from dj_rest_auth.views import LoginView
 from dj_rest_auth.registration.views import RegisterView
@@ -13,6 +13,7 @@ from .models import User
 
 from django.shortcuts import get_list_or_404, get_object_or_404
 
+@permission_classes([AllowAny])
 class CustomRegisterView(RegisterView):
     serializer_class = CustomRegisterSerializer
     
@@ -38,6 +39,7 @@ class CustomRegisterView(RegisterView):
 
         return response
 
+@permission_classes([AllowAny])
 class CustomLoginView(LoginView):
     serializer_class = CustomLoginSerializer
 
@@ -65,7 +67,6 @@ class CustomLoginView(LoginView):
 
 @api_view(['PATCH'])
 @authentication_classes([TokenAuthentication])
-@permission_classes([IsAuthenticated])
 def update_profile_img(request, user_id):
    user = get_object_or_404(User, id=user_id)
    profile_img = request.data.get('profile_img')
@@ -77,7 +78,6 @@ def update_profile_img(request, user_id):
 
 @api_view(['PATCH'])
 @authentication_classes([TokenAuthentication])
-@permission_classes([IsAuthenticated])
 def update_nickname(request, user_id):
     user = get_object_or_404(User, id=user_id)
     nickname = request.data.get('nickname')
@@ -86,3 +86,13 @@ def update_nickname(request, user_id):
         user.save()
     serializer = UserSerializer(user)
     return Response(serializer.data, status=status.HTTP_200_OK)
+
+@api_view(['DELETE'])
+@authentication_classes([TokenAuthentication])
+def user_detail(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    user.delete()
+    return Response(status=status.HTTP_204_NO_CONTENT)
+    # if request.method == 'DELETE':
+    #     user.delete()
+    #     return Response(status=status.HTTP_204_NO_CONTENT)
