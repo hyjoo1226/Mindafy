@@ -3,11 +3,11 @@
     <RouterLink :to="{name:'test'}">MainPage</RouterLink>
     <h1>LogIn View</h1>
     <form @submit.prevent="logIn">
-        <label for="username">username : </label>
+        <label for="username">id : </label>
         <input type="text" id="username" v-model.trim="username"><br>
 
         <label for="password">password : </label>
-        <input type="text" id="password" v-model.trim="password"><br>
+        <input type="password" id="password" v-model.trim="password"><br>
 
         <input type="submit" value="logIn">
     </form>
@@ -23,13 +23,13 @@ const password = ref(null)
 
 const store = useCounterStore()
 
-// const logIn = function(){
-//     const payload = {
-//         username: username.value,
-//         password: password.value
-//     }
-//     store.logIn(payload)
-// }
+const logIn = function(){
+    const payload = {
+        username: username.value,
+        password: password.value
+    }
+    store.logIn(payload)
+}
 </script>
 
 <style scoped>
