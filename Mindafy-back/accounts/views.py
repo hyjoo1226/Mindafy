@@ -1,23 +1,10 @@
 from rest_framework.response import Response
-# from rest_framework.decorators import api_view
 from rest_framework import status
 
-# from django.shortcuts import get_list_or_404, get_object_or_404
-
-from .models import User
-# from .serializers import CustomRegisterSerializer
-
-
-# @api_view(['POST'])
-# def signup(request):
-#     serializer = CustomRegisterSerializer(data=request.data)
-
-#     if serializer.is_valid():
-#         user = serializer.save(request)
-#         token, 
-#         return Response(user)
+from dj_rest_auth.views import LoginView
 from dj_rest_auth.registration.views import RegisterView
-from .serializers import CustomRegisterSerializer
+from .serializers import CustomRegisterSerializer, CustomLoginSerializer
+from .models import User
 
 class CustomRegisterView(RegisterView):
     serializer_class = CustomRegisterSerializer
@@ -27,14 +14,44 @@ class CustomRegisterView(RegisterView):
 
         if response.status_code == status.HTTP_201_CREATED:
             user = User.objects.get(username=request.data['username'])
+            user_data = {
+                "id": user.id,
+                "username": user.username,
+                "email": user.email,
+                "nickname": user.nickname,
+                "age": user.age,
+                "profile_img": user.profile_img,
+                "created_at": user.created_at
+            }
             user.save()
-            # print(response.data)
-            # print(CustomRegisterSerializer(user).data)
-            # print(User.objects.get(username=request.data['username']))
-            # print(response.data)
             return Response({
-                "user": CustomRegisterSerializer(user).data,
+                "user": user_data,
                 "key": response.data['key']
             }, status=status.HTTP_201_CREATED)
+
+        return response
+
+class CustomLoginView(LoginView):
+    serializer_class = CustomLoginSerializer
+
+    def post(self, request, *args, **kwargs):
+        response = super().post(request, *args, **kwargs)
+
+        if response.status_code == status.HTTP_200_OK:
+            user = User.objects.get(username=request.data['username'])
+            user_data = {
+                "id": user.id,
+                "username": user.username,
+                "email": user.email,
+                "nickname": user.nickname,
+                "age": user.age,
+                "profile_img": user.profile_img,
+                "created_at": user.created_at
+            }
+            user.save()
+            return Response({
+                "user": user_data,
+                "key": response.data['key']
+            }, status=status.HTTP_200_OK)
 
         return response
