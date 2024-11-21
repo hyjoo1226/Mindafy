@@ -8,6 +8,9 @@ export const useCounterStore = defineStore('counter', () => {
   const API_URL = 'http://127.0.0.1:8000'
   const router = useRouter()
   const user = ref(null)
+  const token = ref(null)
+
+
   const getTests = function(){
     axios({
       method:'get',
@@ -19,7 +22,7 @@ export const useCounterStore = defineStore('counter', () => {
       .catch(err => console.log(err))
   }
 
-  const token = ref(null)
+  
   const logIn = function(payload){
     const username = payload.username
     const password = payload.password
@@ -36,8 +39,6 @@ export const useCounterStore = defineStore('counter', () => {
       console.log(res.data.user);
       user.value = res.data.user
       router.push({name:'test'})
-
-      
     })
     .catch((err)=>{
       console.log(err)
@@ -45,6 +46,7 @@ export const useCounterStore = defineStore('counter', () => {
     })
   }
   
+
   const signUp = function(payload){
       const username = payload.username
       const password1 = payload.password1
@@ -72,6 +74,7 @@ export const useCounterStore = defineStore('counter', () => {
         });
   }
   
+
   const logOut = function() {
     axios({
       method: 'post',
@@ -96,7 +99,7 @@ export const useCounterStore = defineStore('counter', () => {
 const updateProfile = async function (payload) {
   try {
     // 비밀번호가 있다면 password 변경 요청 (POST)
-    if (payload.password && payload.old_password && payload.new_password1 && payload.new_password2) {
+    if (payload.old_password && payload.new_password1 && payload.new_password2) {
       const passwordResponse = await axios({
         method: 'post',
         url: `${API_URL}/accounts/password/change/`,  // 비밀번호 변경 엔드포인트
