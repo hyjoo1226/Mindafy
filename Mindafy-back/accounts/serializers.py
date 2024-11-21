@@ -29,26 +29,10 @@ class CustomRegisterSerializer(RegisterSerializer):
 
         return user
 
-# class CustomLoginSerializer(LoginSerializer):
-#     def validate(self, attrs):
-#         user = authenticate(
-#             username=attrs.get('username'),
-#             password=attrs.get('password')
-#         )
-
-#         if not user:
-#             raise ValidationError("잘못된 자격 증명입니다.")
-
-#         data = super().validate(attrs)
-
-#         data['user'] = {
-#                 "id": user.id,
-#                 "username": user.username,
-#                 "email": user.email,
-#                 "nickname": user.nickname,
-#                 "profile_img": user.profile_img
-#             }
-
-#         return data
 class CustomLoginSerializer(LoginSerializer):
     pass
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = '__all__'

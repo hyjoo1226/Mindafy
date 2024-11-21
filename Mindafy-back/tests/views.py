@@ -20,7 +20,7 @@ def tests(request):
     return Response(serializer.data)
 
 @api_view(['GET'])
-def test_detail(request, test_pk):
-    test = get_object_or_404(Test, pk=test_pk)
+def test_detail(request, test_id):
+    test = get_object_or_404(Test, id=test_id)
     serializer = TestSerializer(test)
     return Response(serializer.data)

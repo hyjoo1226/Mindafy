@@ -1,10 +1,17 @@
 from rest_framework.response import Response
+from rest_framework.decorators import api_view
 from rest_framework import status
+
+from rest_framework.decorators import authentication_classes, permission_classes
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 from dj_rest_auth.views import LoginView
 from dj_rest_auth.registration.views import RegisterView
-from .serializers import CustomRegisterSerializer, CustomLoginSerializer
+from .serializers import CustomRegisterSerializer, CustomLoginSerializer, UserSerializer
 from .models import User
+
+from django.shortcuts import get_list_or_404, get_object_or_404
 
 class CustomRegisterView(RegisterView):
     serializer_class = CustomRegisterSerializer
@@ -55,3 +62,27 @@ class CustomLoginView(LoginView):
             }, status=status.HTTP_200_OK)
 
         return response
+
+@api_view(['POST'])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def update_profile_img(request, user_id):
+   user = get_object_or_404(User, id=user_id)
+   profile_img = request.data.get('profile_img')
+   if profile_img:
+        user.profile_img = profile_img
+        user.save()
+   serializer = UserSerializer(user)
+   return Response(serializer.data, status=status.HTTP_200_OK)
+
+@api_view(['POST'])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def update_nickname(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    nickname = request.data.get('nickname')
+    if nickname:
+        user.nickname = nickname
+        user.save()
+    serializer = UserSerializer(user)
+    return Response(serializer.data, status=status.HTTP_200_OK)
