@@ -63,7 +63,7 @@ class CustomLoginView(LoginView):
 
         return response
 
-@api_view(['POST'])
+@api_view(['PATCH'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
 def update_profile_img(request, user_id):
@@ -75,7 +75,7 @@ def update_profile_img(request, user_id):
    serializer = UserSerializer(user)
    return Response(serializer.data, status=status.HTTP_200_OK)
 
-@api_view(['POST'])
+@api_view(['PATCH'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
 def update_nickname(request, user_id):
