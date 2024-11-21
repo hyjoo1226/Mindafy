@@ -1,3 +1,4 @@
+<!-- LogInView.vue -->
 <template>
 <div>
     <RouterLink :to="{name:'test'}">MainPage</RouterLink>

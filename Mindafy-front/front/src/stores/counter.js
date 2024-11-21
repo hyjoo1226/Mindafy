@@ -19,30 +19,6 @@ export const useCounterStore = defineStore('counter', () => {
       .catch(err => console.log(err))
   }
 
-  const signUp = function(payload){
-      const username = payload.username
-      const password1 = payload.password1
-      const password2 = payload.password2
-      const nickname = payload.nickname
-      const age = payload.age
-      const email = payload.email
-      const profile_img = payload.profile_img
-      const errorMessage = ref(null)
-      axios({
-        method:'post',
-        url:`${API_URL}/accounts/signup/`,
-        data: {
-          username, password1, password2, nickname, age, email, profile_img
-        }
-      })
-        .then(res => {
-          console.log('회원가입이 완료되었습니다.');
-          router.push({name:'login'})
-        })
-        .catch((err) => {
-          alert('입력 정보를 다시 확인해 주세요.')
-        });
-  }
   const token = ref(null)
   const logIn = function(payload){
     const username = payload.username
@@ -54,15 +30,63 @@ export const useCounterStore = defineStore('counter', () => {
         username, password
       }
     })
-      .then(res => {
-        console.log('로그인이 완료되었습니다.');
-        token.value = res.data.key
-        
-      })
-      .catch(err => console.log(err))
+    .then(res => {
+      console.log('로그인이 완료되었습니다.');
+      token.value = res.data.key
+      router.push({name:'test'})
+      console.log(res);
+      
+    })
+    .catch(err => console.log(err))
   }
   
+  const signUp = function(payload){
+      const username = payload.username
+      const password1 = payload.password1
+      const password2 = payload.password2
+      const nickname = payload.nickname
+      const age = payload.age
+      const email = payload.email
+      const profile_img = payload.profile_img
+      
+      axios({
+        method:'post',
+        url:`${API_URL}/accounts/signup/`,
+        data: {
+          username, password1, password2, nickname, age, email, profile_img
+        }
+      })
+        .then(res => {
+          console.log('회원가입이 완료되었습니다.');
+          const password = password1
+          logIn({username, password})
+        })
+        .catch((err) => {
+          console.log(err)
+          alert('입력 정보를 다시 확인해 주세요.')
+        });
+  }
   
-  return { tests, API_URL, getTests, signUp, logIn, token }
+  const logOut = function() {
+    axios({
+      method: 'post',
+      url: `${API_URL}/accounts/logout/`,
+      headers: {
+        Authorization: `Token ${token.value}`, // 인증 토큰 포함
+      },
+    })
+      .then(() => {
+        token.value = null; // 토큰 제거
+        router.push({ name: 'login' }); // 로그인 페이지로 이동
+        console.log('로그아웃이 완료되었습니다.');
+      })
+      .catch(err => {
+        console.error('로그아웃 요청 중 오류 발생:', err);
+      });
+  };
+  
+  
+  
+  return { tests, API_URL, getTests, signUp, logIn, token,logOut }
 }, {persist: true})
-// signUp, logIn, token, TestIdToTest
+
