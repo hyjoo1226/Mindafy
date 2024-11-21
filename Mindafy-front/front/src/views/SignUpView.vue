@@ -1,5 +1,7 @@
+<!-- SignUpView -->
 <template>
 <div>
+    <!-- <h3 v-if="errorMessage" class="error">{{ store.signUp.errorMessage }}</h3> -->
     <RouterLink :to="{name:'test'}">MainPage</RouterLink>
     <h1>SignUp Page</h1>
     <form @submit.prevent="signUp">
@@ -16,13 +18,13 @@
         <input type="text" id="nickname" v-model.trim="nickname"><br>
 
         <label for="age">age : </label>
-        <input type="number" id="age" v-model.trim="age"><br>
+        <input type="number" id="age" v-model="age"><br>
 
         <label for="email">email : </label>
         <input type="email" id="email" v-model.trim="email"><br>
 
         <label for="profile_img">profile img : </label>
-        <input type="text" id="profile_img" v-model.trim="profile_img"><br>
+        <input type="text" id="profile_img" v-model="profile_img"><br>
 
         <input type="submit" value="SignUp">
     </form>
@@ -57,5 +59,7 @@ const signUp = function(){
 </script>
 
 <style scoped>
-
+/* .error {
+  color: red;
+} */
 </style>

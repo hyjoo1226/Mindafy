@@ -1,9 +1,12 @@
+//counter.js
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 import axios from 'axios'
+import { useRouter } from 'vue-router';
 export const useCounterStore = defineStore('counter', () => {
   const tests = ref([])
   const API_URL = 'http://127.0.0.1:8000'
+  const router = useRouter()
 
   const getTests = function(){
     axios({
@@ -24,38 +27,42 @@ export const useCounterStore = defineStore('counter', () => {
       const age = payload.age
       const email = payload.email
       const profile_img = payload.profile_img
-
+      const errorMessage = ref(null)
       axios({
         method:'post',
-        url:`${API_URL}/accouts/signup/`,
+        url:`${API_URL}/accounts/signup/`,
         data: {
           username, password1, password2, nickname, age, email, profile_img
         }
       })
         .then(res => {
           console.log('회원가입이 완료되었습니다.');
+          router.push({name:'login'})
         })
-        .catch(err => console.log(err))}
-  // const token = ref(null)
-  // const logIn = function(){
-  //   const username = payload.username
-  //   const password = payload.password
-  //   axios({
-  //     method:'post',
-  //     url:`${API_URL}/accouts/login/`,
-  //     data: {
-  //       username, password
-  //     }
-  //   })
-  //     .then(res => {
-  //       console.log('로그인이 완료되었습니다.');
-  //       token.value = res.data.key
+        .catch((err) => {
+          alert('입력 정보를 다시 확인해 주세요.')
+        });
+  }
+  const token = ref(null)
+  const logIn = function(payload){
+    const username = payload.username
+    const password = payload.password
+    axios({
+      method:'post',
+      url:`${API_URL}/accounts/login/`,
+      data: {
+        username, password
+      }
+    })
+      .then(res => {
+        console.log('로그인이 완료되었습니다.');
+        token.value = res.data.key
         
-  //     })
-  //     .catch(err => console.log(err))
-  // }
+      })
+      .catch(err => console.log(err))
+  }
   
   
-  return { tests, API_URL, getTests, signUp }
+  return { tests, API_URL, getTests, signUp, logIn, token }
 }, {persist: true})
 // signUp, logIn, token, TestIdToTest
