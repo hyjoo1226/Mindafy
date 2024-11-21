@@ -11,11 +11,11 @@
   const store = useCounterStore();
   
   const logOut = () => {
-    store.logOut(); // Pinia의 logOut 메서드 호출
+    store.logOut()
   };
   </script>
   
   <style scoped>
-  /* 스타일 정의 */
+  
   </style>
   
