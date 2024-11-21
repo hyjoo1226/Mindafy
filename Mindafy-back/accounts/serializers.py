@@ -4,27 +4,17 @@ from .models import User
 
 class CustomRegisterSerializer(RegisterSerializer):
     nickname = serializers.CharField(required=True)
+    age = serializers.IntegerField(required=False, allow_null=True)
     email = serializers.EmailField(required=True)
+    profile_img = serializers.CharField(required=False, allow_null=True)
     
     def save(self, request):
         user = super().save(request)
         user.nickname = self.validated_data['nickname']
+        user.age = self.validated_data['age']
         user.email = self.validated_data['email']
+        user.profile_img = self.validated_data['profile_img']
         user.save()
 
         return user
-    # def validate_username(self, value):
-    #     if User.objects.filter(username=value).exists():
-    #         raise serializers.ValidationError("이미 존재하는 아이디입니다.")
-    #     return value
-    
-    # def validate_nickname(self, value):
-    #     if User.objects.filter(nickname=value).exists():
-    #         raise serializers.ValidationError("이미 존재하는 닉네임입니다.")
-    #     return value
-    
-    # def validate_email(self, value):
-    #     if User.objects.filter(email=value).exists():
-    #         raise serializers.ValidationError("이미 존재하는 이메일입니다.")
-    #     return value
     
