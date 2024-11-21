@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'tests',
     'accounts',
+    'comments',
     'rest_framework',
     'rest_framework.authtoken',
     'dj_rest_auth',
