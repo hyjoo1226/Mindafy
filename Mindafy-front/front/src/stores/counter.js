@@ -7,7 +7,7 @@ export const useCounterStore = defineStore('counter', () => {
   const tests = ref([])
   const API_URL = 'http://127.0.0.1:8000'
   const router = useRouter()
-
+  const user = ref(null)
   const getTests = function(){
     axios({
       method:'get',
@@ -33,8 +33,10 @@ export const useCounterStore = defineStore('counter', () => {
     .then(res => {
       console.log('로그인이 완료되었습니다.');
       token.value = res.data.key
+      console.log(res.data.user);
+      user.value = res.data.user
       router.push({name:'test'})
-      console.log(res);
+
       
     })
     .catch(err => console.log(err))
@@ -77,6 +79,7 @@ export const useCounterStore = defineStore('counter', () => {
     })
       .then(() => {
         token.value = null; // 토큰 제거
+        user.value = null
         router.push({ name: 'login' }); // 로그인 페이지로 이동
         console.log('로그아웃이 완료되었습니다.');
       })
@@ -87,6 +90,6 @@ export const useCounterStore = defineStore('counter', () => {
   
   
   
-  return { tests, API_URL, getTests, signUp, logIn, token,logOut }
+  return { tests, API_URL, getTests, signUp, logIn, token, logOut, user }
 }, {persist: true})
 

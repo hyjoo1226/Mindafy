@@ -1,7 +1,7 @@
 <!-- LogOut.vue -->
 <template>
     <div>
-      <button @click="logOut">Log Out</button>
+      <button @click="logOut" v-show="store.token">Log Out</button>
     </div>
   </template>
   
