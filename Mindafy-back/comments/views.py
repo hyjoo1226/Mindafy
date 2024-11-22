@@ -36,3 +36,19 @@ def comment_detail(request, comment_id, test_id=None):
         comment = get_object_or_404(Comment, id=comment_id)
         serializer = CommentSerializer(comment)
         return Response(serializer.data, status=status.HTTP_200_OK)
+    
+
+@api_view(['POST'])
+@authentication_classes([TokenAuthentication])
+def create_comment(request, test_id):
+    comment_data = {
+        'user': request.user.id,
+        'test': test_id,
+        'content': request.data.get('content'),
+        'parent_comment': request.data.get('parent_comment')
+    }
+    
+    serializer = CommentSerializer(data=comment_data)
+    if serializer.is_valid(raise_exception=True):
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
