@@ -7,3 +7,4 @@ class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     test = models.ForeignKey(Test, on_delete=models.CASCADE, null=True, related_name='test_like')
     comment = models.ForeignKey(Test, on_delete=models.CASCADE, null=True, related_name='comment_like')
+    created_at = models.DateTimeField(auto_now_add=True)
