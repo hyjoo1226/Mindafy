@@ -11,4 +11,3 @@ class Test(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     recommendation_count = models.IntegerField(default=0)
-    result = models.CharField(max_length=255)
