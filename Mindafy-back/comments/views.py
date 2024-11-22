@@ -26,7 +26,13 @@ def comments(request, test_id=None):
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
-def comment_detail(request, comment_id):
-    comments = get_object_or_404(Comment, id=comment_id)
-    serializer = CommentSerializer(comments)
-    return Response(serializer.data, status=status.HTTP_200_OK)
+def comment_detail(request, comment_id, test_id=None):
+    if test_id:
+        test = get_object_or_404(Test, id=test_id)
+        comment = get_object_or_404(test.comments, id=comment_id)
+        serializer = CommentSerializer(comment)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    else:
+        comment = get_object_or_404(Comment, id=comment_id)
+        serializer = CommentSerializer(comment)
+        return Response(serializer.data, status=status.HTTP_200_OK)
