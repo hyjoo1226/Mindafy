@@ -41,15 +41,27 @@ def comments(request, test_id=None):
         serializer = CommentSerializer(comments, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-@api_view(['GET'])
+@api_view(['GET', 'PATCH'])
 @permission_classes([AllowAny])
 def comment_detail(request, comment_id, test_id=None):
-    # 해당 게시글의 단일 댓글 조회
     if test_id:
         test = get_object_or_404(Test, id=test_id)
         comment = get_object_or_404(test.comments, id=comment_id)
-        serializer = CommentSerializer(comment)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        # 해당 게시글의 단일 댓글 조회
+        if request.method == 'GET':
+            serializer = CommentSerializer(comment)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        # 댓글 수정
+        elif request.method == 'PATCH':
+            if not request.user.is_authenticated:
+                return Response({'error': '로그인이 필요합니다.'}, status=status.HTTP_401_UNAUTHORIZED)
+            elif request.user.id != comment.user.id:
+                return Response({'error': '다른 유저의 댓글입니다.'}, status=status.HTTP_403_FORBIDDEN)
+            
+            serializer = CommentSerializer(comment, data={'content': request.data.get('content')}, partial=True)
+            if serializer.is_valid(raise_exception=True):
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_200_OK)
     # 해당 게시글의 전체 댓글 조회
     else:
         comment = get_object_or_404(Comment, id=comment_id)
