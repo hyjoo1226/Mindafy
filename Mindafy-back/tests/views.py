@@ -16,11 +16,11 @@ from .serializers import TestSerializer
 def tests(request):
     tests = get_list_or_404(Test)
     serializer = TestSerializer(tests, many=True)
-    return Response(serializer.data)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def test_detail(request, test_id):
     test = get_object_or_404(Test, id=test_id)
     serializer = TestSerializer(test)
-    return Response(serializer.data)
+    return Response(serializer.data, status=status.HTTP_200_OK)
