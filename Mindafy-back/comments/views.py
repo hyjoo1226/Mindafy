@@ -7,16 +7,22 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
 
-from .models import Comment
+from .models import Comment, Test
 from .serializers import CommentSerializer
 from django.shortcuts import get_list_or_404, get_object_or_404
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
-def comments(request):
-    comments = get_list_or_404(Comment)
-    serializer = CommentSerializer(comments, many=True)
-    return Response(serializer.data, status=status.HTTP_200_OK)
+def comments(request, test_id=None):
+    if test_id:
+        test = get_object_or_404(Test, id=test_id)
+        comments = test.comments.all()
+        serializer = CommentSerializer(comments, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    else:
+        comments = get_list_or_404(Comment)
+        serializer = CommentSerializer(comments, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
