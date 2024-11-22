@@ -993,7 +993,7 @@
           "fields": {
             "user": 18,
             "test": 2,
-            "parent_comment": 64,
+            "parent_comment": 1,
             "content": "좋은 테스트였어요. 결과가 너무 정확해서 놀랐습니다.",
             "recommendation_count": 9,
             "created_at": "2024-11-24T10:20:33.668655",
@@ -1019,7 +1019,7 @@
           "fields": {
             "user": 3,
             "test": 16,
-            "parent_comment": 77,
+            "parent_comment": 1,
             "content": "이 성격 분석은 정말 정확하고 유익했습니다. 나에 대해 더 알게 되었어요.",
             "recommendation_count": 8,
             "created_at": "2024-11-25T10:45:22.668655",
@@ -1058,7 +1058,7 @@
           "fields": {
             "user": 6,
             "test": 17,
-            "parent_comment": 69,
+            "parent_comment": 1,
             "content": "정확한 성격 분석으로 자기 자신을 잘 알게 됐어요. 매우 유익한 경험이었습니다.",
             "recommendation_count": 9,
             "created_at": "2024-11-27T08:45:33.668655",
@@ -1084,7 +1084,7 @@
           "fields": {
             "user": 12,
             "test": 3,
-            "parent_comment": 74,
+            "parent_comment": 1,
             "content": "자기 성격을 파악하는데 아주 도움이 됐어요. 추천합니다!",
             "recommendation_count": 10,
             "created_at": "2024-11-28T09:05:22.668655",
@@ -1136,7 +1136,7 @@
           "fields": {
             "user": 3,
             "test": 16,
-            "parent_comment": 65,
+            "parent_comment": 1,
             "content": "테스트가 재미있었고, 결과도 매우 정확했습니다. 친구들에게 추천할게요.",
             "recommendation_count": 9,
             "created_at": "2024-11-30T08:35:11.668655",
@@ -1162,7 +1162,7 @@
           "fields": {
             "user": 10,
             "test": 2,
-            "parent_comment": 72,
+            "parent_comment": 1,
             "content": "성격 분석이 정말 정확해서 다시 한 번 해보고 싶어요. 훌륭한 테스트였습니다.",
             "recommendation_count": 10,
             "created_at": "2024-12-01T09:00:00.668655",
@@ -1266,7 +1266,7 @@
             "fields": {
               "user": 2,
               "test": 19,
-              "parent_comment": 73,
+              "parent_comment": 1,
               "content": "이 테스트는 정말 유익하고 결과도 매우 정확해서 친구들에게 추천할 예정입니다.",
               "recommendation_count": 10,
               "created_at": "2024-12-05T08:45:44.668655",
