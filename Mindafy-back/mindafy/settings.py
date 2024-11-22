@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'accounts',
     'comments',
     'likes',
+    'surveys',
     'rest_framework',
     'rest_framework.authtoken',
     'dj_rest_auth',
