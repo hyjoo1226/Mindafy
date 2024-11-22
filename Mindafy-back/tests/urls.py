@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.tests),
     path('<int:test_id>/', views.test_detail),
     path('<int:test_id>/comments/', include('comments.urls')),
+    path('<int:test_id>/likes/', include('likes.urls')),
 ]

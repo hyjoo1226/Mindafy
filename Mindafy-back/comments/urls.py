@@ -1,8 +1,8 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
     path('', views.comments),
     path('<int:comment_id>/', views.comment_detail),
-    # path('create/', views.create_comment),
+    path('<int:comment_id>/likes/', include('likes.urls')),
 ]
