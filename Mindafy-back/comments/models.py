@@ -2,7 +2,6 @@ from django.db import models
 from tests.models import Test
 from accounts.models import User
 
-# Create your models here.
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
     test = models.ForeignKey(Test, on_delete=models.CASCADE, related_name='comments')
