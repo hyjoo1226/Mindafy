@@ -41,7 +41,7 @@ def comments(request, test_id=None):
         serializer = CommentSerializer(comments, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-@api_view(['GET', 'PATCH'])
+@api_view(['GET', 'PATCH', 'DELETE'])
 @permission_classes([AllowAny])
 def comment_detail(request, comment_id, test_id=None):
     if test_id:
@@ -62,6 +62,15 @@ def comment_detail(request, comment_id, test_id=None):
             if serializer.is_valid(raise_exception=True):
                 serializer.save()
                 return Response(serializer.data, status=status.HTTP_200_OK)
+        # 댓글 삭제
+        elif request.method == 'DELETE':
+            if not request.user.is_authenticated:
+                return Response({'error': '로그인이 필요합니다.'}, status=status.HTTP_401_UNAUTHORIZED)
+            elif request.user.id != comment.user.id:
+                return Response({'error': '다른 유저의 댓글입니다.'}, status=status.HTTP_403_FORBIDDEN)
+            
+            comment.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
     # 해당 게시글의 전체 댓글 조회
     else:
         comment = get_object_or_404(Comment, id=comment_id)
