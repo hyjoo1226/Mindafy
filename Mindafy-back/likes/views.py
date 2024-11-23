@@ -22,7 +22,7 @@ def test_like(request, test_id):
         else:
             Test.objects.filter(id=test_id).update(recommendation_count=F('recommendation_count') - 1)
     
-    return Response(status=status.HTTP_200_OK)
+    return Response(like.is_like, status=status.HTTP_200_OK)
 
 
 @api_view(['POST'])
@@ -40,4 +40,4 @@ def comment_like(request, comment_id):
         else:
             Comment.objects.filter(id=comment_id).update(recommendation_count=F('recommendation_count') - 1)
     
-    return Response(status=status.HTTP_200_OK)
+    return Response(like.is_like, status=status.HTTP_200_OK)
