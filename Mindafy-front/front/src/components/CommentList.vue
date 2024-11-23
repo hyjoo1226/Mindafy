@@ -1,12 +1,14 @@
 <!-- CommentList.vue -->
 <template>
     <div>
-        <h3>댓글</h3>
+        <h3>댓글 목록</h3>
         <div v-if="comments.length > 0">
             <CommentListItem 
                 v-for="comment in comments" 
                 :key="comment.id" 
-                :comment="comment" />
+                :comment="comment"
+                @refreshComments="fetchComments"
+            />
         </div>
         <div v-else>
             <p>아직 댓글이 없습니다. 첫 번째 댓글을 남겨보세요!</p>
@@ -32,14 +34,20 @@ const fetchComments = () => {
         url: `${store.API_URL}/api/v1/tests/${route.params.id}/comments/`,
     })
         .then((res) => {
-        comments.value = res.data;
+            comments.value = res.data;
         })
         .catch((err) => console.log(err));
 };
 
 // 컴포넌트가 마운트되면 댓글을 가져옵니다.
 onMounted(() => {
-    fetchComments();
+    fetchComments(); // 컴포넌트 마운트 시 댓글 가져오기
+});
+
+
+// fetchComments 메서드를 부모에서 호출 가능하게 공개
+defineExpose({
+  fetchComments,
 });
 </script>
 

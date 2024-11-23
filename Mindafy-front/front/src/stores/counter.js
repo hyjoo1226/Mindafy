@@ -151,7 +151,7 @@ const updateProfile = async function (payload) {
   }
 };
   
-  
+
   return { tests, API_URL, getTests, signUp, logIn, token, logOut, user, updateProfile }
 }, {persist: true})
 
