@@ -57,9 +57,8 @@ def survey_answers(request, test_result_id):
             'question': request.data.get('question_id'),
             'answer_value': request.data.get('answer_value')
         }
-        answers = []
         serializer = SurveyAnswerSerializer(data=answer)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
 
-        return Response(answers, status=status.HTTP_201_CREATED)
+        return Response(answer, status=status.HTTP_201_CREATED)

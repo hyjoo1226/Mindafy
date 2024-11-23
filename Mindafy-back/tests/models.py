@@ -12,11 +12,11 @@ class Test(models.Model):
     recommendation_count = models.IntegerField(default=0)
 
 class TestResult(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     test = models.ForeignKey(Test, on_delete=models.CASCADE)
-    attribute_key = models.CharField(max_length=100)
-    attribute_value = models.IntegerField()
-    result = models.TextField()
+    attribute_key = models.CharField(max_length=100, default='default')
+    attribute_value = models.IntegerField(default=0)
+    result = models.TextField(default='default')
     result_img = models.CharField(max_length=255, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
