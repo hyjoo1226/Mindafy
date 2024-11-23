@@ -1,7 +1,6 @@
 from django.db import models
-from django.conf import settings
+from accounts.models import User
 
-# Create your models here.
 class Test(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
@@ -11,4 +10,13 @@ class Test(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     recommendation_count = models.IntegerField(default=0)
-    result = models.CharField(max_length=255)
+
+class TestResult(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    test = models.ForeignKey(Test, on_delete=models.CASCADE)
+    attribute_key = models.CharField(max_length=100)
+    attribute_value = models.IntegerField()
+    result = models.TextField()
+    result_img = models.CharField(max_length=255, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)

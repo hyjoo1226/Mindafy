@@ -1,0 +1,102 @@
+[
+    {
+        "model": "surveys.survey",  
+        "pk": 1,
+        "fields": {
+            "test": "1",
+            "title": "심리검사",
+            "created_at": "2024-11-18T10:00:00Z",
+            "updated_at": "2024-11-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "surveys.survey",  
+        "pk": 1,
+        "fields": {
+            "test": "2",
+            "title": "금융설문",
+            "created_at": "2024-11-18T10:00:00Z",
+            "updated_at": "2024-11-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 1,
+        "fields": {
+            "survey": "1",
+            "question": "질문1",
+            "question_number": "1",
+            "question_type": "객관",
+            "created_at": "2024-11-18T10:00:00Z",
+            "updated_at": "2024-11-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 2,
+        "fields": {
+            "survey": "1",
+            "question": "질문2",
+            "question_number": "2",
+            "question_type": "주관",
+            "created_at": "2024-11-18T10:00:00Z",
+            "updated_at": "2024-11-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 1,
+        "fields": {
+            "survey": "1",
+            "question": "질문3",
+            "question_number": "3",
+            "question_type": "7점척도",
+            "created_at": "2024-11-18T10:00:00Z",
+            "updated_at": "2024-11-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 1,
+        "fields": {
+            "question": "1",
+            "option_number": "1",
+            "option_text": "1번보기",
+            "created_at": "2024-11-18T10:00:00Z",
+            "updated_at": "2024-11-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 2,
+        "fields": {
+            "question": "1",
+            "option_number": "2",
+            "option_text": "2번보기",
+            "created_at": "2024-11-18T10:00:00Z",
+            "updated_at": "2024-11-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 3,
+        "fields": {
+            "question": "1",
+            "option_number": "3",
+            "option_text": "3번보기",
+            "created_at": "2024-11-18T10:00:00Z",
+            "updated_at": "2024-11-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 4,
+        "fields": {
+            "question": "1",
+            "option_number": "4",
+            "option_text": "4번보기",
+            "created_at": "2024-11-18T10:00:00Z",
+            "updated_at": "2024-11-18T10:00:00Z"
+        }
+    }
+]
