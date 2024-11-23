@@ -1,6 +1,5 @@
 from django.db import models
 from accounts.models import User
-from tests.models import Test
 
 class Test(models.Model):
     title = models.CharField(max_length=100)
