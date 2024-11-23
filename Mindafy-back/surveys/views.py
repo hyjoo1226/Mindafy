@@ -28,7 +28,14 @@ def survey_questions(request, survey_id):
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def survey_options(request, survey_id):
-    options = get_list_or_404(SurveyOption, survey_id=survey_id)
+    options = SurveyOption.objects.filter(question__survey_id=survey_id).order_by('question__question_number', 'option_number')
+    serializer = SurveyOptionSerializer(options, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def survey_option_detail(request, survey_id, question_id):
+    options = SurveyOption.objects.filter(question__survey_id=survey_id, question_id = question_id)
     serializer = SurveyOptionSerializer(options, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
