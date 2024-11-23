@@ -7,8 +7,8 @@
         <p>테스트 상세 설명 : {{ test.description }}</p>
         <p>좋아요 : {{ test.recommendation_count }}</p>
         <!-- 좋아요 / 좋아요 취소 버튼 -->
-        <button v-if="store.token" @click="toggleLike">
-            {{ liked ? '❤️' : '🤍' }}
+        <button v-if="store.token && is_like !== null" @click="toggleLike">
+            {{ is_like ? '❤️' : '🤍' }}
         </button>
         <br>
         <button @click="onClick(test.id)">테스트 시작하기</button>
@@ -36,7 +36,7 @@ import { useRoute } from 'vue-router';
 const store = useCounterStore()
 const route = useRoute()
 const test = ref(null)
-const liked = ref(false); // 좋아요 상태를 로컬에서 관리
+const is_like = ref(null); // 좋아요 상태를 로컬에서 관리
 
 const newComment = ref({
   content: '', // 댓글 내용
@@ -54,11 +54,25 @@ onMounted(()=>{
             
         })
         .catch(err=>console.log(err))
+
+    if (store.token) {
+        axios({
+            method: 'get',
+            url: `${store.API_URL}/api/v1/tests/${route.params.id}/likes/test/`,
+            headers: {
+                Authorization: `Token ${store.token}`,
+            },
+        })
+            .then((res) => {
+                console.log('Like status response:', res.data.is_like); // API 응답 확인
+                is_like.value = res.data.is_like
+            })
+            .catch((err) => console.error('Failed to fetch liked status:', err));
+    }
 })
 
 // 좋아요 토글 기능
 const toggleLike = () => {
-  if (!liked.value) {
     // 좋아요 추가
     axios({
         method: 'post',
@@ -68,33 +82,20 @@ const toggleLike = () => {
         }
     })
         .then(() => {
-            test.value.recommendation_count++; // 좋아요 수 증가
-            liked.value = true; // 좋아요 상태 변경
-            alert('좋아요가 반영되었습니다.');
+            // 서버 요청 성공 시에만 is_like 상태 변경
+            if (is_like.value) {
+                test.value.recommendation_count--; // 좋아요 수 감소
+                alert('좋아요 취소가 반영되었습니다.');
+            } else {
+                test.value.recommendation_count++; // 좋아요 수 증가
+                alert('좋아요가 반영되었습니다.');
+            }
+            is_like.value = !is_like.value; // 상태 변경
         })
         .catch(err => {
             console.error(err);
             alert('좋아요 요청에 실패했습니다.');
         });
-  } else {
-    // 좋아요 취소
-    axios({
-        method: 'delete',
-        url: `${store.API_URL}/api/v1/tests/${route.params.id}/likes/test/`,
-        headers: {
-            Authorization: `Token ${store.token}`
-        }
-    })
-        .then(() => {
-            test.value.recommendation_count--; // 좋아요 수 감소
-            liked.value = false; // 좋아요 상태 변경
-            alert('좋아요 취소가 반영되었습니다.');
-        })
-        .catch(err => {
-            console.error(err);
-            alert('좋아요 취소 요청에 실패했습니다.');
-        });
-  }
 };
 
 
