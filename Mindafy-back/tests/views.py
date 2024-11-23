@@ -51,6 +51,7 @@ def test_results(request):
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 @api_view(['GET'])
+@permission_classes([AllowAny])
 def test_result_detail(request, test_result_id):
     test_result = get_object_or_404(TestResult.objects.select_related('user', 'test'), id=test_result_id)
     serializer = TestResultSerializer(test_result)
