@@ -8,15 +8,23 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 
 
 from .models import Test, Survey, SurveyQuestion, SurveyOption, SurveyAnswer
-from .serializers import SurveySerializer
+from .serializers import SurveySerializer, SurveyQuestionSerializer
 from django.shortcuts import get_list_or_404, get_object_or_404
 
-@api_view(['GET', 'POST'])
+@api_view(['GET'])
 @permission_classes([AllowAny])
 def surveys(request, test_id):
     surveys = get_list_or_404(Survey, test_id=test_id)
     serializer = SurveySerializer(surveys, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def survey_questions(request, survey_id):
+    questions = get_list_or_404(SurveyQuestion, survey_id=survey_id)
+    serializer = SurveyQuestionSerializer(questions, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
 # @api_view(['GET', 'POST'])
 # @permission_classes([AllowAny])
 # def comments(request, test_id=None):
