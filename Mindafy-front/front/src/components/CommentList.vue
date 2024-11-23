@@ -6,7 +6,9 @@
             <CommentListItem 
                 v-for="comment in comments" 
                 :key="comment.id" 
-                :comment="comment" />
+                :comment="comment"
+                @refreshComments="fetchComments"
+            />
         </div>
         <div v-else>
             <p>아직 댓글이 없습니다. 첫 번째 댓글을 남겨보세요!</p>
