@@ -11,9 +11,9 @@
     },
     {
         "model": "surveys.survey",  
-        "pk": 1,
+        "pk": 2,
         "fields": {
-            "test": "2",
+            "test": "1",
             "title": "금융설문",
             "created_at": "2024-11-18T10:00:00Z",
             "updated_at": "2024-11-18T10:00:00Z"
@@ -45,7 +45,7 @@
     },
     {
         "model": "surveys.surveyquestion",  
-        "pk": 1,
+        "pk": 3,
         "fields": {
             "survey": "1",
             "question": "질문3",
