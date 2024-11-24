@@ -31,10 +31,11 @@ import CommentList from '@/components/CommentList.vue';
 import { useCounterStore } from '@/stores/counter';
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 const store = useCounterStore()
 const route = useRoute()
+const router = useRouter()
 const test = ref(null)
 const is_like = ref(null); // 좋아요 상태를 로컬에서 관리
 
@@ -138,6 +139,14 @@ const refreshComments = () => {
     commentList.value?.fetchComments(); // fetchComments 메서드 호출
 }
 
+const onClick = function(id){
+    if(store.token){
+        router.push({name:'survey',params:{id:id}})
+    }else{
+        alert('로그인이 필요한 서비스 입니다.')
+    }
+
+}
 </script>
 
 

@@ -41,11 +41,11 @@ const router = createRouter({
       name:'detail',
       component: DetailView,
     },
-    // {
-    //   path:'/survey/:id',
-    //   name:'survey',
-    //   component: SurveyView
-    // },
+    {
+      path:'/tests/:id/surveys',
+      name:'survey',
+      component: SurveyView
+    },
     {
       path:'/signup',
       name:'signup',
