@@ -140,13 +140,9 @@ const refreshComments = () => {
 }
 
 const onClick = function(id){
-    if(store.token){
-        router.push({name:'survey',params:{id:id}})
-    }else{
-        alert('로그인이 필요한 서비스 입니다.')
-    }
-
+    router.push({name:'survey',params:{id:id}})
 }
+
 </script>
 
 

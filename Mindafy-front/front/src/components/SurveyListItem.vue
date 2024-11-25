@@ -1,6 +1,10 @@
+<!-- SurveyListItem.vue -->
 <template>
     <div v-for="surveyQ in surveyQs">
-        {{ surveyQ.question }}
+        <h4>
+            {{ surveyQ.question }}
+        </h4>
+        <SurveyListItemOp :surveyQ="surveyQ" :survey="survey"/>
     </div>
 </template>
 
@@ -9,12 +13,15 @@ import { onMounted, ref } from 'vue';
 import { useCounterStore } from '@/stores/counter';
 import axios from 'axios';
 import { useRoute } from 'vue-router';
+import SurveyListItemOp from './SurveyListItemOp.vue';
+
 const route = useRoute()
 const store = useCounterStore()
 const surveyQs = ref(null)
 const props = defineProps({
     survey:Object
 })
+const Qoptions = ref(null)
 // console.log(props.survey.id);
 
 onMounted(()=>{
