@@ -5,8 +5,8 @@
         "fields": {
             "test": "1",
             "title": "심리검사",
-            "created_at": "2024-11-18T10:00:00Z",
-            "updated_at": "2024-11-18T10:00:00Z"
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
         }
     },
     {
@@ -15,44 +15,56 @@
         "fields": {
             "test": "1",
             "title": "금융설문",
-            "created_at": "2024-11-18T10:00:00Z",
-            "updated_at": "2024-11-18T10:00:00Z"
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
         }
     },
     {
         "model": "surveys.surveyquestion",  
         "pk": 1,
         "fields": {
-            "survey": "1",
-            "question": "질문1",
+            "survey": "2",
+            "question": "내 금융상품에 대한 이해 수준은?",
             "question_number": "1",
-            "question_type": "객관",
-            "created_at": "2024-11-18T10:00:00Z",
-            "updated_at": "2024-11-18T10:00:00Z"
+            "question_type": "객관식",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
         }
     },
     {
         "model": "surveys.surveyquestion",  
         "pk": 2,
         "fields": {
-            "survey": "1",
-            "question": "질문2",
+            "survey": "2",
+            "question": "내 금융투자 경험은?",
             "question_number": "2",
-            "question_type": "주관",
-            "created_at": "2024-11-18T10:00:00Z",
-            "updated_at": "2024-11-18T10:00:00Z"
+            "question_type": "객관식",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
         }
     },
     {
         "model": "surveys.surveyquestion",  
         "pk": 3,
         "fields": {
-            "survey": "1",
-            "question": "질문3",
+            "survey": "2",
+            "question": "내 금융투자 목적은?",
             "question_number": "3",
-            "question_type": "7점척도",
-            "created_at": "2024-11-18T10:00:00Z",
-            "updated_at": "2024-11-18T10:00:00Z"
+            "question_type": "객관식",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 4,
+        "fields": {
+            "survey": "2",
+            "question": "내 주거래 은행은?",
+            "question_number": "4",
+            "question_type": "객관식",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
         }
     },
     {
@@ -61,9 +73,9 @@
         "fields": {
             "question": "1",
             "option_number": "1",
-            "option_text": "1번보기",
-            "created_at": "2024-11-18T10:00:00Z",
-            "updated_at": "2024-11-18T10:00:00Z"
+            "option_text": "금융상품을 비롯한 모든 투자대상 상품의 차이를 이해할 수 있어요",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
         }
     },
     {
@@ -72,9 +84,9 @@
         "fields": {
             "question": "1",
             "option_number": "2",
-            "option_text": "2번보기",
-            "created_at": "2024-11-18T10:00:00Z",
-            "updated_at": "2024-11-18T10:00:00Z"
+            "option_text": "투자할 수 있는 대부분의 금융상품의 차이를 구별할 수는 있어요",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
         }
     },
     {
@@ -83,9 +95,9 @@
         "fields": {
             "question": "1",
             "option_number": "3",
-            "option_text": "3번보기",
-            "created_at": "2024-11-18T10:00:00Z",
-            "updated_at": "2024-11-18T10:00:00Z"
+            "option_text": "금융상품에 대한 기본 개념만 알고 있어요",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
         }
     },
     {
@@ -94,9 +106,207 @@
         "fields": {
             "question": "1",
             "option_number": "4",
-            "option_text": "4번보기",
-            "created_at": "2024-11-18T10:00:00Z",
-            "updated_at": "2024-11-18T10:00:00Z"
+            "option_text": "금융상품에 대해 아무것도 몰라요",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 5,
+        "fields": {
+            "question": "2",
+            "option_number": "1",
+            "option_text": "선물, 옵션, ELW, 파생상품펀드(ETF)",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 6,
+        "fields": {
+            "question": "2",
+            "option_number": "2",
+            "option_text": "주식, 주식형펀드, ELS/DLS, 투자자문·일임, 외화자산, 신탁",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 7,
+        "fields": {
+            "question": "2",
+            "option_number": "3",
+            "option_text": "혼합형펀드, 회사채, CP, 단기사채, 채권형펀드",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 8,
+        "fields": {
+            "question": "2",
+            "option_number": "4",
+            "option_text": "예금, CMA, MMF, RP, 국공채",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 9,
+        "fields": {
+            "question": "2",
+            "option_number": "5",
+            "option_text": "금융투자를 안해봤어요",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 10,
+        "fields": {
+            "question": "3",
+            "option_number": "1",
+            "option_text": "목돈 마련을 위해 꾸준히 저축하고 싶어요",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 11,
+        "fields": {
+            "question": "3",
+            "option_number": "2",
+            "option_text": "안전하게 목돈을 관리하고 싶어요",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 12,
+        "fields": {
+            "question": "3",
+            "option_number": "3",
+            "option_text": "위험부담이 있어도 고수익을 얻고 싶어요",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 13,
+        "fields": {
+            "question": "4",
+            "option_number": "1",
+            "option_text": "국민은행",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 14,
+        "fields": {
+            "question": "4",
+            "option_number": "2",
+            "option_text": "신항은행",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 15,
+        "fields": {
+            "question": "4",
+            "option_number": "3",
+            "option_text": "우리은행",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 16,
+        "fields": {
+            "question": "4",
+            "option_number": "4",
+            "option_text": "하나은행",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 17,
+        "fields": {
+            "question": "4",
+            "option_number": "5",
+            "option_text": "농협은행",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 18,
+        "fields": {
+            "question": "4",
+            "option_number": "6",
+            "option_text": "기업은행",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 19,
+        "fields": {
+            "question": "4",
+            "option_number": "7",
+            "option_text": "지방은행(부산, 대구, 광주, 경남 등)",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 20,
+        "fields": {
+            "question": "4",
+            "option_number": "8",
+            "option_text": "특수은행(산업, 수협, 새마을금고, 우체국 등)",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 21,
+        "fields": {
+            "question": "4",
+            "option_number": "9",
+            "option_text": "인터넷 전문은행 (카카오뱅크, 케이뱅크 등)",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 22,
+        "fields": {
+            "question": "4",
+            "option_number": "10",
+            "option_text": "외국계 은행 (SC제일, HSBC 등)",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
         }
     }
 ]
