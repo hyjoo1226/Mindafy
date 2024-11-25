@@ -4,8 +4,8 @@ from rest_framework.permissions import AllowAny
 import requests
 from django.http import JsonResponse
 from django.conf import settings
-from .models import DepositProducts, DepositOptions, SavingProducts, EtfProducts
-from .serializers import DepositProductsSerializer, DepositOptionsSerializer, SavingProductsSerializer, EtfProductsSerializer
+from .models import DepositProducts, DepositOptions, SavingProducts, EtfProducts, SavingOptions
+from .serializers import DepositProductsSerializer, DepositOptionsSerializer, SavingProductsSerializer, EtfProductsSerializer, SavingOptionsSerializer
 
 # 예금 데이터 DB 저장
 @api_view(['GET'])
@@ -50,10 +50,8 @@ def save_deposit(request):
             DepositOptions.objects.get_or_create(
                 product=deposit_product,
                 save_trm=option['save_trm'],
-                defaults={
-                    'intr_rate': option['intr_rate'],
-                    'intr_rate2': option['intr_rate2']
-                }
+                intr_rate=option['intr_rate'],
+                intr_rate2=option['intr_rate2']
             )
 
     
@@ -91,6 +89,23 @@ def save_saving(request):
         serializer = SavingProductsSerializer(data = save_data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
+
+        saving_product = SavingProducts.objects.get(fin_prdt_cd=fin_prdt_cd)
+
+        product_options = [
+            option for option in response['result']['optionList'] 
+            if option['fin_prdt_cd'] == fin_prdt_cd
+        ]
+
+        for option in product_options:
+            SavingOptions.objects.get_or_create(
+                product=saving_product,
+                save_trm=option['save_trm'],
+                intr_rate=option['intr_rate'],
+                intr_rate2=option['intr_rate2'],
+                rsrv_type_nm=option['rsrv_type_nm'],
+                intr_rate_type_nm=option['intr_rate_type_nm']
+            )
     
     return JsonResponse({'message': '적금 데이터 저장'})
 

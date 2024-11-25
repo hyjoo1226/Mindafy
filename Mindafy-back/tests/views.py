@@ -11,7 +11,7 @@ import json
 from django.db.models import F, Func
 from surveys.models import SurveyAnswer, SurveyOption, SurveyQuestion
 from .models import Test, TestResult
-from finance.models import DepositProducts, SavingProducts, EtfProducts, DepositOptions
+from finance.models import DepositProducts, SavingProducts, EtfProducts, DepositOptions, SavingOptions
 from .serializers import TestSerializer, TestResultSerializer
 
 @api_view(['GET'])
@@ -136,7 +136,7 @@ def calculate_test1_result(request, test_result_id):
     description = psy_result_description(psy_result)
     result_type = psy_result_type(psy_result)
     psy_type = psy_result_type(psy_result)
-    is_match = False
+    match = '자극추구와 위험회피 성향을 분석한 결과, 투자 목적과 약간의 차이가 있습니다.'
 
 
     survey2_answers = SurveyAnswer.objects.filter(test_result_id=test_result_id, question__survey_id=2).select_related('question').order_by('question__question_number')
@@ -174,16 +174,24 @@ def calculate_test1_result(request, test_result_id):
         # test_result.investment_product = None
         products_data = deposits_with_options
         if psy_type == '저위험':
-            is_match = True
+            match = '자극추구와 위험회피 성향을 분석한 결과, 투자 목적과 일치합니다.'
 
     elif q3_value == '2':
         savings = SavingProducts.objects.filter(kor_co_nm=selected_bank)
+        savings_with_options = []
+        for saving in savings:
+            options = SavingOptions.objects.filter(product=saving)
+            saving_data = {
+                'product': saving,
+                'options': list(options.values('intr_rate', 'intr_rate2', 'save_trm', 'rsrv_type_nm', 'intr_rate_type'))  # 필요한 옵션 값만 포함
+            }
+            savings_with_options.append(saving_data)
         test_result.deposit_product = None
         test_result.saving_product = savings.first()
         test_result.etf_product = None
         products_data = savings
         if psy_type == '저위험':
-            is_match = True
+            match = '자극추구와 위험회피 성향을 분석한 결과, 투자 목적과 일치합니다.'
         # test_result.investment_product = None
     elif q3_value == '3':
         # if score_sum >= 6:
@@ -197,7 +205,7 @@ def calculate_test1_result(request, test_result_id):
             test_result.etf_product = etfs.fitst()
             products_data = etfs
             if psy_type == '고위험':
-                is_match = True
+                match = '자극추구와 위험회피 성향을 분석한 결과, 투자 목적과 일치합니다.'
         # ETF/펀드 데이터
         # else:
         #     pass
@@ -210,7 +218,7 @@ def calculate_test1_result(request, test_result_id):
         'psy_result': psy_result,
         'risk_total': risk_total,
         'stimulus_total': stimulus_total,
-        'is_match': is_match,
+        'match': match,
         'result_type': result_type,
         'description': description,
         'products': list(products_data.values())
