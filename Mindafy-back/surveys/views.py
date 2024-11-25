@@ -5,7 +5,6 @@ from rest_framework import status
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import AllowAny
 
-
 from .models import Survey, SurveyQuestion, SurveyOption, SurveyAnswer
 from .serializers import SurveySerializer, SurveyQuestionSerializer, SurveyOptionSerializer, SurveyAnswerSerializer
 from django.shortcuts import get_list_or_404
@@ -67,3 +66,5 @@ def survey_answers(request, test_result_id):
                 created_answers.append(answer)
 
         return Response(created_answers, status=status.HTTP_201_CREATED)
+
+

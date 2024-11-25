@@ -7,9 +7,11 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 
 
 from django.shortcuts import get_list_or_404, get_object_or_404
-
+import json
 from django.db.models import F
+from surveys.models import SurveyAnswer, SurveyOption
 from .models import Test, TestResult
+from finance.models import DepositProducts, SavingProducts
 from .serializers import TestSerializer, TestResultSerializer
 
 @api_view(['GET'])
@@ -56,3 +58,143 @@ def test_result_detail(request, test_result_id):
     test_result = get_object_or_404(TestResult.objects.select_related('user', 'test'), id=test_result_id)
     serializer = TestResultSerializer(test_result)
     return Response(serializer.data, status=status.HTTP_200_OK)
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def calculate_test1_result(request, test_result_id):
+    test_result = get_object_or_404(TestResult, id=test_result_id)
+    survey1_answers = SurveyAnswer.objects.filter(test_result_id=test_result_id, question__survey_id=1).order_by('question__question_number')
+
+    risk_aversion_scores = [int(answer.answer_value) for answer in survey1_answers if answer.question.question_number % 2 != 0]
+    stimulus_seeking_scores = [int(answer.answer_value) for answer in survey1_answers if answer.question.question_number % 2 == 0]
+    
+    risk_total = sum(risk_aversion_scores)
+    stimulus_total = sum(stimulus_seeking_scores)
+ 
+    def categorize_score(score):
+        if score <= 35:
+            return 'LOW'
+        elif score <= 70:
+            return 'MEDIUM'
+        else:
+            return 'HIGH'
+        
+    risk_category = categorize_score(risk_total)
+    stimulus_category = categorize_score(stimulus_total)
+
+    result_matrix = {
+        ('LOW', 'LOW'): '위험회피L자극추구L',
+        ('LOW', 'MEDIUM'): '위험회피L자극추구M',
+        ('LOW', 'HIGH'): '위험회피L자극추구H',
+        ('MEDIUM', 'LOW'): '위험회피M자극추구L',
+        ('MEDIUM', 'MEDIUM'): '위험회피M자극추구M',
+        ('MEDIUM', 'HIGH'): '위험회피M자극추구H',
+        ('HIGH', 'LOW'): '위험회피H자극추구L',
+        ('HIGH', 'MEDIUM'): '위험회피H자극추구M',
+        ('HIGH', 'HIGH'): '위험회피H자극추구H'
+    }
+    
+    def determine_type(result):
+        special_types = [
+            '위험회피L자극추구L',
+            '위험회피M자극추구L',
+            '위험회피H자극추구L',
+            '위험회피H자극추구M'
+        ]
+        return '저위험' if result in special_types else '고위험'
+    
+    psy_result = result_matrix[(risk_category, stimulus_category)]
+    psy_type = determine_type(psy_result)
+    is_match = False
+
+
+    survey2_answers = SurveyAnswer.objects.filter(test_result_id=test_result_id, question__survey_id=2).select_related('question').order_by('question__question_number')
+
+    option_scores = {
+    '1': 4,  # 1번보기: 4점
+    '2': 3,  # 2번보기: 3점
+    '3': 2,  # 3번보기: 2점
+    '4': 1   # 4번보기: 1점
+    }   
+    score_sum = sum(
+    option_scores[answer.answer_value] 
+    for answer in survey2_answers[:2]
+    )
+
+    q3_value = survey2_answers[2].answer_value
+
+    q4_answer = survey2_answers[3]
+    q4_option = SurveyOption.objects.get(
+    survey_question_id=q4_answer.question.id,
+    option_number=q4_answer.answer_value
+    )
+    selected_bank = q4_option.option_text
+
+    if q3_value == '1':
+        deposits = DepositProducts.objects.filter(kor_co_nm__in=selected_bank)
+        test_result.deposit_product = deposits.first()
+        test_result.saving_product = None
+        # test_result.investment_product = None
+        products_data = deposits
+        if psy_type == '저위험':
+            is_match = True
+
+    elif q3_value == '2':
+        savings = SavingProducts.objects.filter(kor_co_nm__in=selected_bank)
+        test_result.deposit_product = None
+        test_result.saving_product = savings.first()
+        if psy_type == '저위험':
+            is_match = True
+        # test_result.investment_product = None
+    # elif q3_value == '3':
+    #     # ETF/펀드 데이터
+    #     investment = InvestmentProducts.objects.all()
+    #     test_result.deposit_product = None
+    #     test_result.saving_product = None
+    #     test_result.investment_product = investment.first()
+    attribute_data = {
+        'psy_result': psy_result,
+        'risk_total': risk_total,
+        'stimulus_total': stimulus_total,
+        'is_match': is_match,
+        'products': list(products_data.values())
+    }
+
+    result_data = {
+        'products': list(products_data.values())
+    }
+    
+    test_result.attribute_key = 'test1_results'
+    test_result.attribute_value = json.dumps(attribute_data)
+    # test_result.result = json.dumps(result_data) 새로운결과값
+    test_result.save()
+
+    return Response({
+        **attribute_data,
+        **result_data
+    }, status=status.HTTP_200_OK)
+
+
+    # response_data = {
+    #     'products': list(products_data.values()),
+    #     'result': psy_result,
+    #     'risk_total': risk_total,
+    #     'stimulus_total': stimulus_total,
+    #     'is_match': is_match
+    # }
+
+
+
+    # test_result.result = json.dumps(response_data)
+    # test_result.save()
+
+    # return Response(response_data, status=status.HTTP_200_OK)
+
+
+    # return Response({
+    #     'products': products_data.values(),
+    #     'result': psy_result,
+    #     'risk_total': risk_total,
+    #     'stimulus_total': stimulus_total,
+    #     'is_match': is_match
+    # }, status=status.HTTP_200_OK)
