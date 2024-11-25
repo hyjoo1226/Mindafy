@@ -3,12 +3,12 @@
     <div class="question-options">
         <!-- Multiple choice options -->
         <div v-if="options && options.length > 0" class="multiple-choice">
-            <div v-for="option in options" :key="option.id" class="option-item">
+            <div v-for="(option, index) in options" :key="option.id" class="option-item">
                 <label class="flex items-center space-x-2">
                     <input 
                         type="radio" 
                         :name="'question-' + props.surveyQ.id"
-                        :value="option.id"
+                        :value="index + 1"
                         v-model="selectedAnswer"
                         @change="emitAnswer"
                         class="form-radio"
@@ -71,8 +71,10 @@ const emitAnswer = () => {
         question_id: props.surveyQ.id,
         answer_value: options.value?.length > 0 ? selectedAnswer.value : scaleValue.value
     };
+    console.log('Emitting answer:', answerPayload);
     emits('answer-selected', answerPayload);
 };
+
 
 onMounted(() => {
     axios({
