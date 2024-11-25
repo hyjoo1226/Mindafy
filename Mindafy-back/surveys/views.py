@@ -52,13 +52,18 @@ def survey_answers(request, test_result_id):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     elif request.method == 'POST':
-        answer = {
-            'test_result': test_result_id,
-            'question': request.data.get('question_id'),
-            'answer_value': request.data.get('answer_value')
-        }
-        serializer = SurveyAnswerSerializer(data=answer)
-        if serializer.is_valid(raise_exception=True):
-            serializer.save()
+        answers_data = request.data.get('answers', [])
+        created_answers = []
+        
+        for answer_data in answers_data:
+            answer = {
+                'test_result': test_result_id,
+                'question': answer_data.get('question_id'),
+                'answer_value': answer_data.get('answer_value')
+            }
+            serializer = SurveyAnswerSerializer(data=answer)
+            if serializer.is_valid(raise_exception=True):
+                serializer.save()
+                created_answers.append(answer)
 
-        return Response(answer, status=status.HTTP_201_CREATED)
+        return Response(created_answers, status=status.HTTP_201_CREATED)
