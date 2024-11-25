@@ -19,7 +19,7 @@ class TestResult(models.Model):
     saving_product = models.ForeignKey(SavingProducts, on_delete=models.CASCADE, null=True, blank=True)
     etf_product = models.ForeignKey(EtfProducts, on_delete=models.CASCADE, null=True, blank=True)
     attribute_key = models.CharField(max_length=100, default='default')
-    attribute_value = models.IntegerField(default=0)
+    attribute_value = models.TextField()
     result = models.TextField(default='default')
     result_img = models.CharField(max_length=255, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
