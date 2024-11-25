@@ -52,4 +52,12 @@ defineExpose({
 </script>
 
 <style scoped>
+h3 {
+    margin-bottom: 10px;
+    color: #333333;
+}
+
+p {
+    color: #666666;
+}
 </style>

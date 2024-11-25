@@ -44,5 +44,12 @@ const updateAnswers = (answerData) => {
 </script>
 
 <style scoped>
+div {
+    margin-bottom: 20px;
+}
 
+h2 {
+    margin-bottom: 10px;
+    color: #333333;
+}
 </style>

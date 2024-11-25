@@ -1,29 +1,24 @@
 <!-- DetailView.vue -->
 <template>
-<div>
-    <RouterLink :to="{name:'test'}">MainPage</RouterLink>
-    <div v-if="test">
+    <div class="detail-container">
+      <!-- <RouterLink :to="{name:'test'}" class="nav-link">MainPage</RouterLink> -->
+      <div v-if="test">
         <h1>{{ test.title }} 테스트 상세설명 페이지 입니다.</h1>
         <p>테스트 상세 설명 : {{ test.description }}</p>
-        <p>좋아요 : {{ test.recommendation_count }}</p>
-        <!-- 좋아요 / 좋아요 취소 버튼 -->
-        <button v-if="store.token && is_like !== null" @click="toggleLike">
-            {{ is_like ? '❤️' : '🤍' }}
+        <p>❤️ : {{ test.recommendation_count }}</p>
+        <button v-if="store.token && is_like !== null" @click="toggleLike" class="like-button">
+          {{ is_like ? '❤️' : '🤍' }}
         </button>
         <br>
         <button @click="onClick(test.id)">테스트 시작하기</button>
-        <br>
         <hr>
-        <br>
-        <!-- 댓글 생성 폼 -->
-        <div>
-            <textarea v-model="newComment.content" placeholder="댓글을 작성해주세요..." rows="4"></textarea>
-            <button @click="createComment">댓글 작성</button>
+        <div class="comment-form">
+          <textarea v-model="newComment.content" placeholder="댓글을 작성해주세요..." rows="4"></textarea>
+          <button @click="createComment">댓글 작성</button>
         </div>
-        <!-- 댓글 목록 -->
         <CommentList ref="commentList" />
+      </div>
     </div>
-</div>
 </template>
 
 <script setup>
@@ -129,7 +124,7 @@ const createComment = () => {
         })
         .catch((err) => {
             console.error('댓글 작성 실패:', err);
-            alert('댓글 작성에 실패했습니다. 다시 시도해주세요.');
+            alert('로그인이 필요한 서비스입니다.');
         });
 };
 
@@ -147,5 +142,35 @@ const onClick = function(id){
 
 
 <style scoped>
+.detail-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
+h1 {
+    color: #333333;
+}
+
+p {
+    color: #666666;
+}
+
+.like-button, button {
+    margin-top: 10px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.like-button:hover, button:hover {
+    background-color: #6aa84f; /* Slightly darker green for hover */
+}
 </style>

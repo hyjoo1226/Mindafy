@@ -116,13 +116,11 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
 }
 
 .scale-item input[type="radio"] {
     width: 30px;
     height: 30px;
-    cursor: pointer;
 }
 
 .scale-item label {
@@ -133,7 +131,5 @@ onMounted(() => {
     display: flex;
     justify-content: space-between;
     margin-top: 5px;
-    font-size: 12px;
-    color: #666;
 }
 </style>

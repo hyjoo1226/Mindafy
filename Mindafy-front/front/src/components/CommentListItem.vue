@@ -99,5 +99,25 @@ const deleteComment = () => {
 </script>
 
 <style scoped>
+.comment-item {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eaeaea; /* Light grey border */
+}
 
+button {
+    background-color: transparent; /* Transparent background for edit/delete buttons */
+    color: #1D63FF; /* Primary blue for buttons */
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    text-decoration: underline; /* Underline on hover for clarity */
+}
+
+textarea {
+    width: calc(100% - 20px);
+    margin-top: 10px;
+}
 </style>
