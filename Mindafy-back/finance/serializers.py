@@ -1,4 +1,4 @@
-from .models import DepositOptions, DepositProducts, SavingProducts, EtfProducts
+from .models import DepositOptions, DepositProducts, SavingProducts, EtfProducts, SavingOptions
 from rest_framework import serializers
 
 class DepositProductsSerializer(serializers.ModelSerializer):
@@ -14,6 +14,11 @@ class DepositOptionsSerializer(serializers.ModelSerializer):
 class SavingProductsSerializer(serializers.ModelSerializer):
     class Meta:
         model = SavingProducts
+        fields = '__all__'
+
+class SavingOptionsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SavingOptions
         fields = '__all__'
 
 class EtfProductsSerializer(serializers.ModelSerializer):
