@@ -1,6 +1,8 @@
 <template>
     <div v-for="survey in surveys">
-        {{ survey.title }}
+        <h2>
+            {{ survey.title }}
+        </h2>
         <SurveyListItem :survey="survey"/>
     </div>
 </template>

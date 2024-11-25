@@ -149,6 +149,8 @@ const updateProfile = async function (payload) {
     alert('Failed to update profile.'); // 오류 메시지
     throw err; // 에러를 다시 던져서 상위 레벨에서 처리할 수 있도록 함
   }
+
+
 };
   
 
