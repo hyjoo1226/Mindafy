@@ -60,13 +60,13 @@ onMounted(()=>{
     method:'post',
     url:`${store.API_URL}/api/v1/tests/${route.params.id}/start/`,
     })
-    .then(res => {
-    console.log(`TheResult : ${res.data}. 객체생성에 성공하였습니다.`);
-    theResult.value = res.data
+    .then((res) => {
+        console.log(`TheResult : ${res.data}. 객체생성에 성공하였습니다.`);
+        theResult.value = res.data
     })
     .catch((err)=>{
-    console.log(err)
-    alert('테스트 시작 시 TheResult 객체 생성에 실패하였습니다.')
+        console.log(err)
+        alert('테스트 시작 시 TheResult 객체 생성에 실패하였습니다.')
     })
 })
 
@@ -85,26 +85,66 @@ const updateAnswers = (answerData) => {
     console.log('Current answers:', answers.value);
 };
 
+// const submitSurvey = async () => {
+//     try {
+//         console.log('제출할 답변들:', answers.value);
+        
+//         await axios({
+//             method: 'post',
+//             url: `${store.API_URL}/api/v1/tests/results/${theResult.value.id}/surveys/answers/`,
+//             data: { answers: answers.value }
+//         });
+            
+
+//         console.log('모든 답변이 성공적으로 제출되었습니다.');
+//         router.push({ name: 'result' });
+//     } catch (err) {
+//         console.error(err);
+//         alert('답변 제출에 실패하였습니다.');
+//     }
+// };
+
+// axios({
+//     method: 'post',
+//     url: `${store.API_URL}/api/v1/tests/results/${theResult.value.id}/calculate/`
+// })
+//     .then((res) => {
+//         console.log('알고리즘 함수 작동 성공.');
+//         console.log(`이것은 알고리즘 작동 성공 후 resData입니다. : ${res.data}`);
+
+//         router.push({ name: 'result' });
+//     })
+//     .catch(err => console.log(err));
+
 const submitSurvey = async () => {
     try {
-        // Submit each answer
-        console.log(`answers.value : ${answers.value}`);
+        console.log('제출할 답변들:', answers.value);
         
-        for (const answer of answers.value) {
-            console.log('Sending answer:', answers.value);
-            await axios({
-                method: 'post',
-                url: `${store.API_URL}/api/v1/tests/results/${theResult.value.id}/surveys/answers/`,
-                data: answer
-            });
-        }
-        console.log('모든 답변이 제출되었습니다.');
+        const response = await axios({
+            method: 'post',
+            url: `${store.API_URL}/api/v1/tests/results/${theResult.value.id}/surveys/answers/`,
+            data: { answers: answers.value }
+        });
+
+        console.log('모든 답변이 성공적으로 제출되었습니다.');
+        
+        // 답변 제출 성공 후 알고리즘 계산 요청
+        const calculateResponse = await axios({
+            method: 'post',
+            url: `${store.API_URL}/api/v1/tests/results/${theResult.value.id}/calculate/`
+        });
+        
+        console.log('알고리즘 함수 작동 성공.');
+        console.log(`이것은 알고리즘 작동 성공 후 resData입니다. : ${JSON.stringify(calculateResponse.data)}`);
+
+        // 모든 처리가 완료된 후 결과 페이지로 이동
         router.push({ name: 'result' });
     } catch (err) {
-        console.error(err);
-        alert('답변 제출에 실패하였습니다.');
+        console.error('오류 발생:', err);
+        alert('처리 중 오류가 발생했습니다.');
     }
 };
+
 
 </script>
 
