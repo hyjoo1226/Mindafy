@@ -4,8 +4,8 @@ from rest_framework.permissions import AllowAny
 import requests
 from django.http import JsonResponse
 from django.conf import settings
-from .models import DepositProducts, DepositOptions, SavingProducts
-from .serializers import DepositProductsSerializer, DepositOptionsSerializer, SavingProductsSerializer
+from .models import DepositProducts, DepositOptions, SavingProducts, EtfProducts
+from .serializers import DepositProductsSerializer, DepositOptionsSerializer, SavingProductsSerializer, EtfProductsSerializer
 
 # 예금 데이터 DB 저장
 @api_view(['GET'])
@@ -80,3 +80,32 @@ def save_saving(request):
             serializer.save()
     
     return JsonResponse({'message': '적금 데이터 저장'})
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def save_etf(request):
+    api_key = settings.ETF_API_KEY
+    url = f'https://apis.data.go.kr/1160100/service/GetSecuritiesProductInfoService/getETFPriceInfo?serviceKey={api_key}&numOfRows=10000&pageNo=1&resultType=json'
+    response = requests.get(url).json()
+    items = response['response']['body']['items']['item']
+    for item in items:
+        itmsNm = item['itmsNm']
+        fltRt = item['fltRt']
+        trqu = item['trqu']
+        bssIdxIdxNm = item['bssIdxIdxNm']
+
+        if EtfProducts.objects.filter(itmsNm=itmsNm, fltRt=fltRt, trqu=trqu, bssIdxIdxNm=bssIdxIdxNm).exists():
+            continue
+
+        save_data = {
+            'itmsNm': itmsNm,
+            'fltRt': fltRt,
+            'trqu': trqu,
+            'bssIdxIdxNm': bssIdxIdxNm,
+        }
+
+        serializer = EtfProductsSerializer(data = save_data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+    
+    return JsonResponse({'message': 'ETF 데이터 저장'})

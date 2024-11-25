@@ -21,3 +21,9 @@ class SavingProducts(models.Model):
         mtrt_int = models.TextField()
         spcl_cnd = models.TextField()
         etc_note = models.TextField()
+
+class EtfProducts(models.Model):
+        itmsNm = models.TextField()
+        fltRt = models.FloatField()
+        trqu = models.IntegerField()
+        bssIdxIdxNm = models.TextField()

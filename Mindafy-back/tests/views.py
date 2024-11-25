@@ -8,10 +8,10 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 
 from django.shortcuts import get_list_or_404, get_object_or_404
 import json
-from django.db.models import F
-from surveys.models import SurveyAnswer, SurveyOption
+from django.db.models import F, Func
+from surveys.models import SurveyAnswer, SurveyOption, SurveyQuestion
 from .models import Test, TestResult
-from finance.models import DepositProducts, SavingProducts
+from finance.models import DepositProducts, SavingProducts, EtfProducts
 from .serializers import TestSerializer, TestResultSerializer
 
 @api_view(['GET'])
@@ -124,16 +124,30 @@ def calculate_test1_result(request, test_result_id):
     q3_value = survey2_answers[2].answer_value
 
     q4_answer = survey2_answers[3]
-    q4_option = SurveyOption.objects.get(
-    survey_question_id=q4_answer.question.id,
-    option_number=q4_answer.answer_value
-    )
+
+    question = SurveyQuestion.objects.get(id=q4_answer.question.id)
+    q4_option = question.options.get(option_number=q4_answer.answer_value)
+    
+    #2
+    # q4_option = SurveyOption.objects.get(
+    #     question_id=q4_answer.question.id,  # 올바른 필드 이름
+    #     option_number=q4_answer.answer_value
+    # )
+
+    #3
+    # q4_option = SurveyOption.objects.get(
+    # question=q4_answer.question,  # SurveyQuestion FK 관계
+    # option_number=q4_answer.answer_value
+    # )
+
+
     selected_bank = q4_option.option_text
 
     if q3_value == '1':
         deposits = DepositProducts.objects.filter(kor_co_nm__in=selected_bank)
         test_result.deposit_product = deposits.first()
         test_result.saving_product = None
+        test_result.etf_product = None
         # test_result.investment_product = None
         products_data = deposits
         if psy_type == '저위험':
@@ -143,15 +157,32 @@ def calculate_test1_result(request, test_result_id):
         savings = SavingProducts.objects.filter(kor_co_nm__in=selected_bank)
         test_result.deposit_product = None
         test_result.saving_product = savings.first()
+        test_result.etf_product = None
+        products_data = savings
         if psy_type == '저위험':
             is_match = True
         # test_result.investment_product = None
-    # elif q3_value == '3':
-    #     # ETF/펀드 데이터
-    #     investment = InvestmentProducts.objects.all()
-    #     test_result.deposit_product = None
-    #     test_result.saving_product = None
-    #     test_result.investment_product = investment.first()
+    elif q3_value == '3':
+        if score_sum >= 6:
+            etfs = EtfProducts.objects.filter(
+            trqu__gte=1000000  # 거래량이 100만 이상
+            ).annotate(
+                abs_fltRt=Func(F('fltRt'), function='ABS')  # 등락률의 절댓값 계산
+            ).order_by('-abs_fltRt')[:5]  # 절댓값 기준 내림차순 정렬
+            test_result.deposit_product = None
+            test_result.saving_product = None
+            test_result.etf_product = etfs.fitst()
+            products_data = etfs
+            if psy_type == '고위험':
+                is_match = True
+        else:
+        # ETF/펀드 데이터
+            pass
+        # test_result.deposit_product = None
+        # test_result.saving_product = None
+        # test_result.investment_product = investment.first()
+
+
     attribute_data = {
         'psy_result': psy_result,
         'risk_total': risk_total,
