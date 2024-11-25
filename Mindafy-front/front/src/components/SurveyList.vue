@@ -1,9 +1,10 @@
+<!-- SurveyList.vue -->
 <template>
     <div v-for="survey in surveys">
         <h2>
             {{ survey.title }}
         </h2>
-        <SurveyListItem :survey="survey"/>
+        <SurveyListItem :survey="survey" @update-answers="updateAnswers"/>
     </div>
 </template>
 
@@ -19,6 +20,9 @@ const surveys = ref(null)
 const props = defineProps({
     testId:Number
 })
+// emits 정의 추가
+const emit = defineEmits(['update-answers']);
+
 onMounted(()=>{
     //survey 정보 받아오기
     axios({
@@ -32,6 +36,11 @@ onMounted(()=>{
         .catch(err=>console.log(err))
 })
 
+// updateAnswers 함수 추가
+const updateAnswers = (answerData) => {
+    console.log('Received answer from SurveyListItem:', answerData);
+    emit('update-answers', answerData); // SurveyView로 전달
+};
 </script>
 
 <style scoped>
