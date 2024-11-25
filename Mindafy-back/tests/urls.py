@@ -11,4 +11,5 @@ urlpatterns = [
     path('results/<int:test_result_id>/surveys/', include('surveys.urls')),
     path('results/', views.test_results),
     path('results/<int:test_result_id>/', views.test_result_detail),
+    path('results/<int:test_result_id>/calculate/', views.calculate_test1_result),
 ]
