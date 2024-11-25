@@ -11,7 +11,7 @@ import json
 from django.db.models import F, Func
 from surveys.models import SurveyAnswer, SurveyOption, SurveyQuestion
 from .models import Test, TestResult
-from finance.models import DepositProducts, SavingProducts, EtfProducts
+from finance.models import DepositProducts, SavingProducts, EtfProducts, DepositOptions
 from .serializers import TestSerializer, TestResultSerializer
 
 @api_view(['GET'])
@@ -160,11 +160,19 @@ def calculate_test1_result(request, test_result_id):
 
     if q3_value == '1':
         deposits = DepositProducts.objects.filter(kor_co_nm=selected_bank)
+        deposits_with_options = []
+        for deposit in deposits:
+            options = DepositOptions.objects.filter(product=deposit)
+            deposit_data = {
+                'product': deposit,
+                'options': list(options.values('intr_rate', 'intr_rate2', 'save_trm'))  # 필요한 옵션 값만 포함
+            }
+            deposits_with_options.append(deposit_data)
         test_result.deposit_product = deposits.first()
         test_result.saving_product = None
         test_result.etf_product = None
         # test_result.investment_product = None
-        products_data = deposits
+        products_data = deposits_with_options
         if psy_type == '저위험':
             is_match = True
 
@@ -178,7 +186,7 @@ def calculate_test1_result(request, test_result_id):
             is_match = True
         # test_result.investment_product = None
     elif q3_value == '3':
-        if score_sum >= 6:
+        # if score_sum >= 6:
             etfs = EtfProducts.objects.filter(
             trqu__gte=1000000  # 거래량이 100만 이상
             ).annotate(
@@ -190,9 +198,9 @@ def calculate_test1_result(request, test_result_id):
             products_data = etfs
             if psy_type == '고위험':
                 is_match = True
-        else:
         # ETF/펀드 데이터
-            pass
+        # else:
+        #     pass
         # test_result.deposit_product = None
         # test_result.saving_product = None
         # test_result.investment_product = investment.first()

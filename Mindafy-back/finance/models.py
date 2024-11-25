@@ -10,8 +10,8 @@ class DepositProducts(models.Model):
 
 class DepositOptions(models.Model):
     product = models.ForeignKey(DepositProducts, on_delete=models.CASCADE)
-    intr_rate = models.FloatField()
-    intr_rate2 = models.FloatField()
+    intr_rate = models.FloatField(null=True, blank=True)
+    intr_rate2 = models.FloatField(null=True, blank=True)
     save_trm = models.IntegerField()
 
 class SavingProducts(models.Model):
