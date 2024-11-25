@@ -126,7 +126,7 @@ def calculate_test1_result(request, test_result_id):
     q4_answer = survey2_answers[3]
 
     question = SurveyQuestion.objects.get(id=q4_answer.question.id)
-    q4_option = question.options.get(option_number=q4_answer.answer_value)
+    # q4_option = question.options.get(option_number=q4_answer.answer_value)
     
     #2
     # q4_option = SurveyOption.objects.get(
@@ -135,10 +135,10 @@ def calculate_test1_result(request, test_result_id):
     # )
 
     #3
-    # q4_option = SurveyOption.objects.get(
-    # question=q4_answer.question,  # SurveyQuestion FK 관계
-    # option_number=q4_answer.answer_value
-    # )
+    q4_option = SurveyOption.objects.get(
+    question=q4_answer.question,  # SurveyQuestion FK 관계
+    option_number=q4_answer.answer_value
+    )
 
 
     selected_bank = q4_option.option_text
