@@ -9,7 +9,7 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from django.shortcuts import get_list_or_404, get_object_or_404
 import json
 from django.db.models import F, Func
-from surveys.models import SurveyAnswer, SurveyOption
+from surveys.models import SurveyAnswer, SurveyOption, SurveyQuestion
 from .models import Test, TestResult
 from finance.models import DepositProducts, SavingProducts, EtfProducts
 from .serializers import TestSerializer, TestResultSerializer
@@ -124,10 +124,23 @@ def calculate_test1_result(request, test_result_id):
     q3_value = survey2_answers[2].answer_value
 
     q4_answer = survey2_answers[3]
-    q4_option = SurveyOption.objects.get(
-    survey_question_id=q4_answer.question.id,
-    option_number=q4_answer.answer_value
-    )
+
+    question = SurveyQuestion.objects.get(id=q4_answer.question.id)
+    q4_option = question.options.get(option_number=q4_answer.answer_value)
+    
+    #2
+    # q4_option = SurveyOption.objects.get(
+    #     question_id=q4_answer.question.id,  # 올바른 필드 이름
+    #     option_number=q4_answer.answer_value
+    # )
+
+    #3
+    # q4_option = SurveyOption.objects.get(
+    # question=q4_answer.question,  # SurveyQuestion FK 관계
+    # option_number=q4_answer.answer_value
+    # )
+
+
     selected_bank = q4_option.option_text
 
     if q3_value == '1':
