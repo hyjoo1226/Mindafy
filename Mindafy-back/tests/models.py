@@ -1,6 +1,6 @@
 from django.db import models
 from accounts.models import User
-from finance.models import DepositProducts, SavingProducts
+from finance.models import DepositProducts, SavingProducts, EtfProducts
 
 class Test(models.Model):
     title = models.CharField(max_length=100)
@@ -17,6 +17,7 @@ class TestResult(models.Model):
     test = models.ForeignKey(Test, on_delete=models.CASCADE)
     deposit_product = models.ForeignKey(DepositProducts, on_delete=models.CASCADE, null=True, blank=True)
     saving_product = models.ForeignKey(SavingProducts, on_delete=models.CASCADE, null=True, blank=True)
+    etf_product = models.ForeignKey(EtfProducts, on_delete=models.CASCADE, null=True, blank=True)
     attribute_key = models.CharField(max_length=100, default='default')
     attribute_value = models.IntegerField(default=0)
     result = models.TextField(default='default')
