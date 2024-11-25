@@ -1,3 +1,4 @@
+<!-- ResultView.vue -->
 <template>
     <div>
         결과페이지입니다.
