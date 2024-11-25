@@ -58,17 +58,17 @@ onMounted(() => {
 
 <style scoped>
 .survey-questions {
-margin: 1rem 0;
+    margin: 1rem 0;
 }
 
 .scale-guide {
-background-color: #f3f4f6;
-padding: 1rem;
-border-radius: 0.5rem;
-margin-bottom: 1.5rem;
+    background-color: #f3f4f6;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .survey-question {
-margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 </style>

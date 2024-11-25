@@ -1,8 +1,8 @@
 <!-- Survey.View.vue -->
 <template>
     <div v-if="test">
-      <RouterLink :to="{ name: 'test' }">MainPage</RouterLink>
-      <h1>{{ test.title }}의 <br>설문조사 페이지입니다.</h1>
+      <!-- <RouterLink :to="{ name: 'test' }">MainPage</RouterLink> -->
+      <h1>{{ test.title }}의 설문조사 페이지입니다.</h1>
       <SurveyList 
         :testId="test.id"
         @update-answers="updateAnswers"
@@ -85,37 +85,6 @@ const updateAnswers = (answerData) => {
     console.log('Current answers:', answers.value);
 };
 
-// const submitSurvey = async () => {
-//     try {
-//         console.log('제출할 답변들:', answers.value);
-        
-//         await axios({
-//             method: 'post',
-//             url: `${store.API_URL}/api/v1/tests/results/${theResult.value.id}/surveys/answers/`,
-//             data: { answers: answers.value }
-//         });
-            
-
-//         console.log('모든 답변이 성공적으로 제출되었습니다.');
-//         router.push({ name: 'result' });
-//     } catch (err) {
-//         console.error(err);
-//         alert('답변 제출에 실패하였습니다.');
-//     }
-// };
-
-// axios({
-//     method: 'post',
-//     url: `${store.API_URL}/api/v1/tests/results/${theResult.value.id}/calculate/`
-// })
-//     .then((res) => {
-//         console.log('알고리즘 함수 작동 성공.');
-//         console.log(`이것은 알고리즘 작동 성공 후 resData입니다. : ${res.data}`);
-
-//         router.push({ name: 'result' });
-//     })
-//     .catch(err => console.log(err));
-
 const submitSurvey = async () => {
     try {
         console.log('제출할 답변들:', answers.value);
@@ -149,6 +118,26 @@ const submitSurvey = async () => {
 </script>
 
 <style scoped>
+div {
+    padding: 20px;
+}
 
+h1 {
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #1D63FF; /* Primary blue color */
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #155ab3; /* Slightly darker blue for hover */
+}
 </style>
-
