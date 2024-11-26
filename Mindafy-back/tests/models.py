@@ -20,7 +20,5 @@ class TestResult(models.Model):
     etf_product = models.ForeignKey(EtfProducts, on_delete=models.CASCADE, null=True, blank=True)
     attribute_key = models.CharField(max_length=100, default='default')
     attribute_value = models.TextField()
-    result = models.TextField(default='default')
-    result_img = models.CharField(max_length=255, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
