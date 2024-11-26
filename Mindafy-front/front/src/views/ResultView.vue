@@ -1,3 +1,4 @@
+<!-- 예금ResultView.vue 예시 -->
 <template>
     <div class="container mx-auto px-4 py-8">
         <!-- 메인 결과 섹션 -->
