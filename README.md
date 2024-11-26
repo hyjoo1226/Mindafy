@@ -18,5 +18,97 @@
 ### 팀원 정보
 이름|역할|구현기능
 |--|--|--|
-박태현|팀장| Front-End - 와이어프레임, 컴포넌트 구조, 금융상품 추천 알고리즘
+박태현|팀장| Front-End - 와이어프레임, 컴포넌트 구조, 금융상품 추천 알고리즘,
 주현호|팀원| Back-End - ERD, API 컨벤션, 금융상품 추천 알고리즘, REST API 설계, 금융데이터 전처리, 유저 * 게시글 * 댓글 CRUD, 더미데이터 생성, 심리검사 제작, AI 이미지 제작
+
+### 기술 스택
+- Git
+- Front
+    - language
+        - HTML
+        - CSS
+        - JavaScript 
+    - framework
+        - Vue3
+        - Pinia
+        - axios
+        - chart.js
+    - Figma
+
+- Back
+    - language
+        - Python
+    - framework
+        - Django
+        - Django-rest-framework
+        - dj-rest-auth
+    - DB
+        - SQLite
+
+## 산출물
+
+### 프로젝트 구조
+```python
+Mindafy
+├─Mindafy-back
+│  ├─accounts
+│  ├─comments
+│  │  ├─fixtures
+│  ├─finance
+│  ├─likes
+│  ├─mindafy
+│  ├─static
+│  │  ├─test_img
+│  │  └─test_results
+│  │      └─test1
+│  ├─staticfiles
+│  ├─surveys
+│  │  ├─fixtures
+│  ├─tests
+│  │  ├─fixtures
+└─Mindafy-front
+    └─front
+        └─src
+            ├─components
+	│  ├─CommentList
+	│  ├─CommentListItem
+	│  ├─Logout
+	│  ├─SurveyList
+	│  ├─SurveyListItem
+	│  ├─SurveyListItemOp
+	│  ├─TestList
+	│  ├─TestListItem
+            ├─router
+            ├─stores
+            └─views
+	│  ├─CreateView
+	│  ├─DetailView
+	│  ├─LogInView
+	│  ├─ResultETFView
+	│  ├─ResultJukView
+	│  ├─ResultView
+	│  ├─SignUpView
+	│  ├─StartView
+	│  ├─SurveyView
+	│  ├─TestView
+	│  ├─UserView
+  	├─App
+```
+## 와이어프레임
+![와이어프레임](./etc/와이어프레임.png)
+
+## 컴포넌트 구조
+![컴포넌트구조](./etc/컴포넌트구조.png)
+
+## ERD
+![ERD](./etc/ERD(금융제외).png)
+
+## 금융상품 추천 알고리즘
+![금융상품 추천 알고리즘](./etc/상품추천알고리즘.png)
+
+## API 컨벤션
+[API 컨벤션](./etc/API컨벤션.pdf)
+
+
+## 실행화면
+- gif 추가예정
