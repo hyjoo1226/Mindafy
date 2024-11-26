@@ -3,10 +3,10 @@
       "model": "tests.test",  
       "pk": 1,
       "fields": {
-          "title": "샘플 테스트 1",
-          "description": "이것은 첫 번째 샘플 테스트입니다.",
+          "title": "나한테 어울리는 금융상품은 ?",
+          "description": "나한테 어울리는 금융상품은 무엇일까? 심리검사 결과를 기반으로 한 금융상품 추천 테스트입니다!",
           "participant_count": 150,
-          "duration": 30,
+          "duration": 5,
           "created_at": "2024-11-18T10:00:00Z",
           "updated_at": "2024-11-18T10:00:00Z",
           "recommendation_count": 25

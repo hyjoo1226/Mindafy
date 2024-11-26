@@ -4,14 +4,14 @@ from rest_framework import status
 
 from rest_framework.decorators import authentication_classes, permission_classes
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, AllowAny
 
 from dj_rest_auth.views import LoginView
 from dj_rest_auth.registration.views import RegisterView
 from .serializers import CustomRegisterSerializer, CustomLoginSerializer, UserSerializer
 from .models import User
 
-from django.shortcuts import get_list_or_404, get_object_or_404
+from django.shortcuts import get_object_or_404
 
 @permission_classes([AllowAny])
 class CustomRegisterView(RegisterView):
@@ -88,14 +88,13 @@ def update_nickname(request, user_id):
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 @api_view(['GET','DELETE'])
-@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticatedOrReadOnly])
 def user_detail(request, user_id):
     user = get_object_or_404(User, id=user_id)
     if request.method == 'GET':
         serializer = UserSerializer(user)
         return Response(serializer.data, status=status.HTTP_200_OK)
-    # user.delete()
-    # return Response(status=status.HTTP_204_NO_CONTENT)
     elif request.method == 'DELETE':
-        user.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        if request.user.is_authenticated:
+            user.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
