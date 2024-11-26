@@ -81,34 +81,128 @@ const updateAnswers = (answerData) => {
     console.log('Current answers:', answers.value);
 };
 
+// const submitSurvey = async () => {
+//     try {
+//         console.log('제출할 답변들:', answers.value);
+        
+//         const response = await axios({
+//             method: 'post',
+//             url: `${store.API_URL}/api/v1/tests/results/${theResult.value.id}/surveys/answers/`,
+//             data: { answers: answers.value }
+//         });
+
+//         console.log('모든 답변이 성공적으로 제출되었습니다.');
+        
+//         // 답변 제출 성공 후 알고리즘 계산 요청
+//         const calculateResponse = await axios({
+//             method: 'post',
+//             url: `${store.API_URL}/api/v1/tests/results/${theResult.value.id}/calculate/`
+//         });
+        
+//         console.log('알고리즘 함수 작동 성공.');
+//         console.log(`이것은 알고리즘 작동 성공 후 resData입니다. : ${JSON.stringify(calculateResponse.data)}`);
+
+//         // Pinia store에 결과 저장
+//         store.setTestResult(calculateResponse.data);
+
+//         // 결과 페이지로 이동
+//         if({question_id: 3, answer_value: 1} in answers.value){
+//             router.push({ name: 'result',});
+//         }else-if({question_id: 3, answer_value: 2} in answers.value){
+//             router.push({ name: 'resultjuk',});
+//         }else-if({question_id: 3, answer_value: 3} in answers.value){
+//             router.push({ name: 'resultetf',});
+//         }
+//     } catch (err) {
+//         console.error('오류 발생:', err);
+//         alert('처리 중 오류가 발생했습니다.');
+//     }
+// };
+// const submitSurvey = async () => {
+//     try {
+//         console.log('제출할 답변들:', answers.value);
+        
+//         const response = await axios.post(
+//             `${store.API_URL}/api/v1/tests/results/${theResult.value.id}/surveys/answers/`,
+//             { answers: answers.value }
+//         );
+
+//         console.log('모든 답변이 성공적으로 제출되었습니다.');
+        
+//         const calculateResponse = await axios.post(
+//             `${store.API_URL}/api/v1/tests/results/${theResult.value.id}/calculate/`
+//         );
+        
+//         console.log('알고리즘 함수 작동 성공.');
+//         console.log(`이것은 알고리즘 작동 성공 후 resData입니다. : ${JSON.stringify(calculateResponse.data)}`);
+
+//         store.setTestResult(calculateResponse.data);
+
+//         const question3Answer = answers.value.find(answer => answer.question_id === 3);
+        
+//         if (question3Answer) {
+//             switch (question3Answer.answer_value) {
+//                 case 1:
+//                     router.push({ name: 'result' });
+//                     break;
+//                 case 2:
+//                     router.push({ name: 'resultjuk' });
+//                     break;
+//                 case 3:
+//                     router.push({ name: 'resultetf' });
+//                     break;
+//                 default:
+//                     console.error('알 수 없는 답변 값입니다.');
+//                     break;
+//             }
+//         } else {
+//             console.error('질문 3에 대한 답변을 찾을 수 없습니다.');
+//         }
+//     } catch (err) {
+//         console.error('오류 발생:', err);
+//         alert('처리 중 오류가 발생했습니다.');
+//     }
+// };
 const submitSurvey = async () => {
     try {
         console.log('제출할 답변들:', answers.value);
         
-        const response = await axios({
-            method: 'post',
-            url: `${store.API_URL}/api/v1/tests/results/${theResult.value.id}/surveys/answers/`,
-            data: { answers: answers.value }
-        });
+        const response = await axios.post(
+            `${store.API_URL}/api/v1/tests/results/${theResult.value.id}/surveys/answers/`,
+            { answers: answers.value }
+        );
 
         console.log('모든 답변이 성공적으로 제출되었습니다.');
         
-        // 답변 제출 성공 후 알고리즘 계산 요청
-        const calculateResponse = await axios({
-            method: 'post',
-            url: `${store.API_URL}/api/v1/tests/results/${theResult.value.id}/calculate/`
-        });
+        const calculateResponse = await axios.post(
+            `${store.API_URL}/api/v1/tests/results/${theResult.value.id}/calculate/`
+        );
         
         console.log('알고리즘 함수 작동 성공.');
         console.log(`이것은 알고리즘 작동 성공 후 resData입니다. : ${JSON.stringify(calculateResponse.data)}`);
 
-        // Pinia store에 결과 저장
         store.setTestResult(calculateResponse.data);
 
-        // 결과 페이지로 이동
-        router.push({ 
-            name: 'result',
-        });
+        const question3Answer = answers.value.find(answer => answer.question_id === 3);
+        
+        if (question3Answer) {
+            switch (question3Answer.answer_value) {
+                case 1:
+                    router.push({ name: 'result' });
+                    break;
+                case 2:
+                    router.push({ name: 'resultjuk' });
+                    break;
+                case 3:
+                    router.push({ name: 'resultetf' });
+                    break;
+                default:
+                    console.error('알 수 없는 답변 값입니다.');
+                    break;
+            }
+        } else {
+            console.error('질문 3에 대한 답변을 찾을 수 없습니다.');
+        }
     } catch (err) {
         console.error('오류 발생:', err);
         alert('처리 중 오류가 발생했습니다.');

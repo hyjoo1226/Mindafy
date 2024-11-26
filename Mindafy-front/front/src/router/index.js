@@ -9,6 +9,8 @@ import UserView from '@/views/UserView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { useCounterStore } from '@/stores/counter'
 import ResultView from '@/views/ResultView.vue'
+import ResultJukView from '@/views/ResultJukView.vue'
+import ResultETFView from '@/views/ResultETFView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -61,6 +63,16 @@ const router = createRouter({
       path:'/tests/results/:id',
       name:'result',
       component:ResultView
+    },
+    {
+      path:'/tests/resultsjuk/:id',
+      name:'resultjuk',
+      component:ResultJukView
+    },
+    {
+      path:'/tests/resultsetf/:id',
+      name:'resultetf',
+      component:ResultETFView
     },
   ],
 })
