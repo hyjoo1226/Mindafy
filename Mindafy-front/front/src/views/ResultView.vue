@@ -4,7 +4,7 @@
         <!-- 메인 결과 섹션 -->
         <div v-if="result" class="bg-white rounded-lg shadow-lg p-6 mb-8">
             <h1 class="text-3xl font-bold text-center mb-6">{{ result.result_type }}</h1>
-            
+            <img v-bind:src="result.img_url" class="result-image"/>
             <!-- 설명 섹션 -->
             <div class="mb-8">
                 <p class="text-lg text-gray-700 mb-4">{{ result.description }}</p>
@@ -131,6 +131,13 @@ onMounted(() => {
 </script>
 
 <style scoped>
+
+.result-image {
+    max-width: 500px; /* 또는 원하는 최대 너비 */
+    height: auto;
+    margin: 0 auto 20px;
+    display: block;
+}
 .container {
     max-width: 1200px;
     margin: 0 auto;

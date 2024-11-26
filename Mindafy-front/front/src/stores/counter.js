@@ -155,6 +155,21 @@ export const useCounterStore = defineStore('counter', () => {
     console.log('Test result cleared')
   }
 
+  //유저 아이디를 넣으면 유저 정보를 주는 api
+  const findNickname = async function(userId) {
+    try {
+      const response = await axios({
+        method: 'get',
+        url: `${API_URL}/accounts/users/${userId}/`,
+      });
+      console.log(response.data.nickname);
+      return response.data.nickname;
+    } catch (err) {
+      console.error('Error fetching nickname:', err);
+      return 'Unknown User';
+    }
+  }
+
   return { 
     tests, 
     API_URL, 
@@ -167,6 +182,7 @@ export const useCounterStore = defineStore('counter', () => {
     updateProfile,
     testResult,  // 테스트 결과 상태 추가
     setTestResult,  // 테스트 결과 설정 함수
-    clearTestResult  // 테스트 결과 초기화 함수
+    clearTestResult,
+    findNickname  
   }
 }, {persist: true})

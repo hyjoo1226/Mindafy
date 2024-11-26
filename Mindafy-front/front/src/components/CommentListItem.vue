@@ -2,7 +2,7 @@
 <template>
     <div>
       <p v-if="!isEditing">
-        - {{ comment.content }}
+        {{ nickname  }} - {{ comment.content }}
         <button v-if="isAuthor" @click="editComment">수정</button>
         <button v-if="isAuthor" @click="deleteComment">삭제</button>
       </p>
@@ -17,7 +17,7 @@
 
 <script setup>
 import { useCounterStore } from '@/stores/counter';
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import axios from 'axios';
 
 const props = defineProps({
@@ -26,6 +26,14 @@ const props = defineProps({
 const emit = defineEmits(['refreshComments'])
 const store = useCounterStore();
 
+//닉네임 표시 
+const nickname = ref('Loading...');
+
+onMounted(async () => {
+  // console.log(await store.findNickname(props.comment.user));
+  
+  nickname.value = await store.findNickname(props.comment.user);
+});
 // 수정 관련 상태 변수
 const isEditing = ref(false);  // 수정 모드 여부
 const editContent = ref(props.comment.content);  // 수정할 내용
