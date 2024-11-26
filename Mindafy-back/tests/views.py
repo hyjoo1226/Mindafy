@@ -13,7 +13,7 @@ from surveys.models import SurveyAnswer, SurveyOption, SurveyQuestion
 from .models import Test, TestResult
 from finance.models import DepositProducts, SavingProducts, EtfProducts, DepositOptions, SavingOptions
 from .serializers import TestSerializer, TestResultSerializer
-from finance.serializers import DepositProductsSerializer, DepositOptionsSerializer, SavingOptionsSerializer, SavingProductsSerializer
+from finance.serializers import DepositProductsSerializer, DepositOptionsSerializer, SavingOptionsSerializer, SavingProductsSerializer, EtfProductsSerializer
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
@@ -220,10 +220,19 @@ def calculate_test1_result(request, test_result_id):
                 ).annotate(
                     abs_fltRt=Func(F('fltRt'), function='ABS')  # 등락률의 절댓값 계산
                 ).order_by('abs_fltRt')[:5]  # 절댓값 기준 오름차순 정렬
+            
+            etfs_data = []
+            for etf in etfs:
+                etf_serializer = EtfProductsSerializer(etf)
+                etf_data = {
+                    'product': etf_serializer.data
+                }
+                etfs_data.append(etf_data)
+
             test_result.deposit_product = None
             test_result.saving_product = None
             test_result.etf_product = etfs.first()
-            products_data = etfs
+            products_data = etfs_data
             if psy_type == '고위험':
                 match = '자극추구와 위험회피 성향을 분석한 결과, 투자 목적과 일치합니다.'
         # ETF/펀드 데이터
