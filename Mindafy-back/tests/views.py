@@ -44,8 +44,6 @@ def create_test_result(request, test_id):
         'test': test_id,
         'attribute_key': 'default',
         'attribute_value': 0,
-        'result': 'default',
-        'result_img': None
     }
     serializer = TestResultSerializer(data=test_result)
     if serializer.is_valid(raise_exception=True):
