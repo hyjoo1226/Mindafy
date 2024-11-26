@@ -1,11 +1,15 @@
+import requests
+
 from rest_framework.decorators import api_view
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import AllowAny
-import requests
+
 from django.http import JsonResponse
 from django.conf import settings
+
 from .models import DepositProducts, DepositOptions, SavingProducts, EtfProducts, SavingOptions
-from .serializers import DepositProductsSerializer, DepositOptionsSerializer, SavingProductsSerializer, EtfProductsSerializer, SavingOptionsSerializer
+from .serializers import DepositProductsSerializer, SavingProductsSerializer, EtfProductsSerializer
+
 
 # 예금 데이터 DB 저장
 @api_view(['GET'])
@@ -54,7 +58,6 @@ def save_deposit(request):
                 intr_rate2=option['intr_rate2']
             )
 
-    
     return JsonResponse({'message': '예금 데이터 저장'})
 
 
@@ -109,6 +112,7 @@ def save_saving(request):
     
     return JsonResponse({'message': '적금 데이터 저장'})
 
+# ETF데이터 DB 저장
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def save_etf(request):
