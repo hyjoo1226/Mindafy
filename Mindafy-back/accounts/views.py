@@ -87,12 +87,15 @@ def update_nickname(request, user_id):
     serializer = UserSerializer(user)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
-@api_view(['DELETE'])
+@api_view(['GET','DELETE'])
 @authentication_classes([TokenAuthentication])
 def user_detail(request, user_id):
     user = get_object_or_404(User, id=user_id)
-    user.delete()
-    return Response(status=status.HTTP_204_NO_CONTENT)
-    # if request.method == 'DELETE':
-    #     user.delete()
-    #     return Response(status=status.HTTP_204_NO_CONTENT)
+    if request.method == 'GET':
+        serializer = UserSerializer(user)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    # user.delete()
+    # return Response(status=status.HTTP_204_NO_CONTENT)
+    elif request.method == 'DELETE':
+        user.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

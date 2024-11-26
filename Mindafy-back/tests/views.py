@@ -95,14 +95,14 @@ def calculate_test1_result(request, test_result_id):
         ('HIGH', 'HIGH'): '위험회피H자극추구H'
     }
     
-    def determine_type(result):
+    def psy_determine_type(psy_result):
         special_types = [
             '위험회피L자극추구L',
             '위험회피M자극추구L',
             '위험회피H자극추구L',
             '위험회피H자극추구M'
         ]
-        return '저위험' if result in special_types else '고위험'
+        return '저위험' if psy_result in special_types else '고위험'
     
     def psy_result_description(psy_result):
         descriptions = {
@@ -137,6 +137,7 @@ def calculate_test1_result(request, test_result_id):
     description = psy_result_description(psy_result)
     result_type = psy_result_type(psy_result)
     psy_type = psy_result_type(psy_result)
+    determine_type = psy_determine_type(psy_result)
     match = '자극추구와 위험회피 성향을 분석한 결과, 투자 목적과 약간의 차이가 있습니다.'
 
 
@@ -207,11 +208,18 @@ def calculate_test1_result(request, test_result_id):
         # test_result.investment_product = None
     elif q3_value == '3':
         # if score_sum >= 6:
-            etfs = EtfProducts.objects.filter(
-            trqu__gte=1000000  # 거래량이 100만 이상
-            ).annotate(
-                abs_fltRt=Func(F('fltRt'), function='ABS')  # 등락률의 절댓값 계산
-            ).order_by('-abs_fltRt')[:5]  # 절댓값 기준 내림차순 정렬
+            if determine_type == '고위험':
+                etfs = EtfProducts.objects.filter(
+                trqu__gte=1000000  # 거래량이 100만 이상
+                ).annotate(
+                    abs_fltRt=Func(F('fltRt'), function='ABS')  # 등락률의 절댓값 계산
+                ).order_by('-abs_fltRt')[:5]  # 절댓값 기준 내림차순 정렬
+            else:
+                etfs = EtfProducts.objects.filter(
+                trqu__gte=1000000  # 거래량이 100만 이상
+                ).annotate(
+                    abs_fltRt=Func(F('fltRt'), function='ABS')  # 등락률의 절댓값 계산
+                ).order_by('abs_fltRt')[:5]  # 절댓값 기준 오름차순 정렬
             test_result.deposit_product = None
             test_result.saving_product = None
             test_result.etf_product = etfs.first()
