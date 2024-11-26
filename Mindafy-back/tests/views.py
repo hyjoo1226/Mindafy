@@ -227,7 +227,10 @@ def calculate_test1_result(request, test_result_id):
     q4_answer = survey2_answers[3]
     q4_option = SurveyOption.objects.get(question=q4_answer.question, option_number=q4_answer.answer_value)
     selected_bank = q4_option.option_text
-
+    if selected_bank == '농협은행':
+        selected_bank = '농협은행주식회사'
+    elif selected_bank == '기업은행':
+        selected_bank = '중소기업은행'
 
     
     if q3_value == '1':
