@@ -4,113 +4,122 @@
       "pk": 1,
       "fields": {
           "title": "나한테 어울리는 금융상품은 ?",
-          "description": "나한테 어울리는 금융상품은 무엇일까? 심리검사 결과를 기반으로 한 금융상품 추천 테스트입니다!",
-          "participant_count": 150,
+          "description": "나한테 어울리는 금융상품은 무엇일까? 심리검사 결과를 기반으로 한 금융상품 추천 테스트입니다",
+          "participant_count": 3500,
           "duration": 5,
+          "test_img": "img_url/하츄핑테스트.webp",
           "created_at": "2024-11-18T10:00:00Z",
           "updated_at": "2024-11-18T10:00:00Z",
-          "recommendation_count": 25
+          "recommendation_count": 2945
       }
   },
   {
       "model": "tests.test",  
       "pk": 2,
       "fields": {
-          "title": "샘플 테스트 2",
-          "description": "이것은 첫 번째 샘플 테스트입니다.",
-          "participant_count": 150,
-          "duration": 30,
+          "title": "하츄핑 테스트",
+          "description": "내 티니핑을 찾아보자!",
+          "participant_count": 7000,
+          "duration": 3,
+          "test_img": "img_url/하츄핑테스트.webp",
           "created_at": "2024-11-18T10:00:00Z",
           "updated_at": "2024-11-18T10:00:00Z",
-          "recommendation_count": 25
+          "recommendation_count": 5000
       }
   },
   {
       "model": "tests.test",  
       "pk": 3,
       "fields": {
-          "title": "샘플 테스트 3",
-          "description": "이것은 첫 번째 샘플 테스트입니다.",
-          "participant_count": 150,
-          "duration": 30,
+          "title": "고양이 테스트",
+          "description": "내가 고양이가 된다면 어떤 고양이일까? 바로 알아보러 가자냐옹-!",
+          "participant_count": 4300,
+          "duration": 5,
+          "test_img": "img_url/고양이테스트.jpg",
           "created_at": "2024-11-18T10:00:00Z",
           "updated_at": "2024-11-18T10:00:00Z",
-          "recommendation_count": 25
+          "recommendation_count": 2656
       }
   },
   {
       "model": "tests.test",  
       "pk": 4,
       "fields": {
-          "title": "샘플 테스트 4",
-          "description": "이것은 첫 번째 샘플 테스트입니다.",
+          "title": "겨울BTI",
+          "description": "한결 추워진 날씨, 이제 정말 겨울인가 봐...나랑 잘 어울리는 겨울 아이템은 뭘까? 겨울BTI로 확인해 보자",
           "participant_count": 150,
-          "duration": 30,
+          "duration": 7,
+          "test_img": "img_url/겨울BTI.png",
           "created_at": "2024-11-18T10:00:00Z",
           "updated_at": "2024-11-18T10:00:00Z",
-          "recommendation_count": 25
+          "recommendation_count": 100
       }
   },
   {
       "model": "tests.test",  
       "pk": 5,
       "fields": {
-          "title": "샘플 테스트 5",
-          "description": "이것은 첫 번째 샘플 테스트입니다.",
-          "participant_count": 150,
-          "duration": 30,
+          "title": "연애 사용 설명서",
+          "description": "연애할 때 나는 어떤 모습일까? 연애할 때 나의 주의사항은? 내 연애를 더 행복하게 만드는 방법 지금 바로 테스트해봐",
+          "participant_count": 5134,
+          "duration": 5,
+          "test_img": "img_url/연애사용설명서.png",
           "created_at": "2024-11-18T10:00:00Z",
           "updated_at": "2024-11-18T10:00:00Z",
-          "recommendation_count": 25
+          "recommendation_count": 2500
       }
   },
   {
       "model": "tests.test",  
       "pk": 6,
       "fields": {
-          "title": "샘플 테스트 6",
-          "description": "이것은 첫 번째 샘플 테스트입니다.",
-          "participant_count": 150,
-          "duration": 30,
+          "title": "유리멘탈 테스트",
+          "description": "지친 사람들 모두 모여라! 내 지금 멘탈 상태는 어떨까?",
+          "participant_count": 1050,
+          "duration": 5,
+          "test_img": "img_url/유리멘탈테스트.png",
           "created_at": "2024-11-18T10:00:00Z",
           "updated_at": "2024-11-18T10:00:00Z",
-          "recommendation_count": 25
+          "recommendation_count": 625
       }
   },
   {
       "model": "tests.test",  
       "pk": 7,
       "fields": {
-          "title": "샘플 테스트 7",
-          "description": "이것은 첫 번째 샘플 테스트입니다.",
-          "participant_count": 150,
-          "duration": 30,
+          "title": "연애 시그널 테스트",
+          "description": "좋아하는 사람이 있다면 YES, 좋아하는 사람이 없다면 NO",
+          "participant_count": 7500,
+          "duration": 6,
+          "test_img": "img_url/연애시그널테스트.png",
           "created_at": "2024-11-18T10:00:00Z",
           "updated_at": "2024-11-18T10:00:00Z",
-          "recommendation_count": 25
+          "recommendation_count": 5643
       }
   },
   {
       "model": "tests.test",  
       "pk": 8,
       "fields": {
-          "title": "샘플 테스트 8",
-          "description": "이것은 첫 번째 샘플 테스트입니다.",
-          "participant_count": 150,
-          "duration": 30,
+          "title": "흑백요리사 테스트",
+          "description": "1R - 흑수저 결정전, 나의 생존 여부는?",
+          "participant_count": 1504,
+          "duration": 5,
+          "test_img": "img_url/흑백요리사테스트.png",
           "created_at": "2024-11-18T10:00:00Z",
           "updated_at": "2024-11-18T10:00:00Z",
-          "recommendation_count": 25
+          "recommendation_count": 925
       }
   },
   {
       "model": "tests.test",  
       "pk": 9,
       "fields": {
-          "title": "샘플 테스트 9",
-          "description": "이것은 첫 번째 샘플 테스트입니다.",
+          "title": "도파민 중독 테스트",
+          "description": "혹시 나도 도파민 중독...? 이번 기회에 자가진단 해보자",
           "participant_count": 150,
           "duration": 30,
+          "test_img": "img_url/도파민중독테스트.png",
           "created_at": "2024-11-18T10:00:00Z",
           "updated_at": "2024-11-18T10:00:00Z",
           "recommendation_count": 25
