@@ -3,8 +3,9 @@
     <div class="detail-container">
       <!-- <RouterLink :to="{name:'test'}" class="nav-link">MainPage</RouterLink> -->
       <div v-if="test">
-        <h1>{{ test.title }} 테스트 상세설명 페이지 입니다.</h1>
-        <p>테스트 상세 설명 : {{ test.description }}</p>
+        <img :src="`http://127.0.0.1:8000/static/${test.test_img}`" :alt="test.title">
+        <h1>{{ test.title }}</h1>
+        <p>{{ test.description }}</p>
         <p>❤️ : {{ test.recommendation_count }}</p>
         <button v-if="store.token && is_like !== null" @click="toggleLike" class="like-button">
           {{ is_like ? '❤️' : '🤍' }}
