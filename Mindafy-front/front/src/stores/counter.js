@@ -1,16 +1,17 @@
-//counter.js
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 import axios from 'axios'
 import { useRouter } from 'vue-router';
+
 export const useCounterStore = defineStore('counter', () => {
   const tests = ref([])
   const API_URL = 'http://127.0.0.1:8000'
   const router = useRouter()
   const user = ref(null)
   const token = ref(null)
+  const testResult = ref(null)  // 테스트 결과를 저장할 상태 추가
 
-
+  // 기존 함수들...
   const getTests = function(){
     axios({
       method:'get',
@@ -22,7 +23,6 @@ export const useCounterStore = defineStore('counter', () => {
       .catch(err => console.log(err))
   }
 
-  
   const logIn = function(payload){
     const username = payload.username
     const password = payload.password
@@ -45,7 +45,6 @@ export const useCounterStore = defineStore('counter', () => {
       alert('id와 password를 확인해주세요')
     })
   }
-  
 
   const signUp = function(payload){
       const username = payload.username
@@ -73,20 +72,20 @@ export const useCounterStore = defineStore('counter', () => {
           alert('입력 정보를 다시 확인해 주세요.')
         });
   }
-  
 
   const logOut = function() {
     axios({
       method: 'post',
       url: `${API_URL}/accounts/logout/`,
       headers: {
-        Authorization: `Token ${token.value}`, // 인증 토큰 포함
+        Authorization: `Token ${token.value}`,
       },
     })
       .then(() => {
-        token.value = null; // 토큰 제거
+        token.value = null;
         user.value = null
-        router.push({ name: 'login' }); // 로그인 페이지로 이동
+        testResult.value = null  // 로그아웃 시 테스트 결과도 초기화
+        router.push({ name: 'login' });
         console.log('로그아웃이 완료되었습니다.');
       })
       .catch(err => {
@@ -94,66 +93,80 @@ export const useCounterStore = defineStore('counter', () => {
       });
   };
 
+  const updateProfile = async function (payload) {
+    try {
+      if (payload.old_password && payload.new_password1 && payload.new_password2) {
+        const passwordResponse = await axios({
+          method: 'post',
+          url: `${API_URL}/accounts/password/change/`,
+          headers: {
+            Authorization: `Token ${token.value}`,
+          },
+          data: {
+            old_password: payload.old_password,
+            new_password1: payload.new_password1,
+            new_password2: payload.new_password2,
+          },
+        });
+        console.log('Password updated:', passwordResponse.data);
+      }
 
+      if (payload.nickname) {
+        const nicknameResponse = await axios({
+          method: 'patch',
+          url: `${API_URL}/accounts/users/${user.value.id}/nickname/`,
+          headers: {
+            Authorization: `Token ${token.value}`,
+          },
+          data: { nickname: payload.nickname },
+        });
+        console.log('Nickname updated:', nicknameResponse.data);
+      }
 
-const updateProfile = async function (payload) {
-  try {
-    // 비밀번호가 있다면 password 변경 요청 (POST)
-    if (payload.old_password && payload.new_password1 && payload.new_password2) {
-      const passwordResponse = await axios({
-        method: 'post',
-        url: `${API_URL}/accounts/password/change/`,  // 비밀번호 변경 엔드포인트
-        headers: {
-          Authorization: `Token ${token.value}`,
-        },
-        data: {
-          old_password: payload.old_password,  // 기존 비밀번호
-          new_password1: payload.new_password1,  // 새 비밀번호
-          new_password2: payload.new_password2,  // 새 비밀번호 확인
-        },
-      });
-      console.log('Password updated:', passwordResponse.data);
+      if (payload.profile_img) {
+        const profileImgResponse = await axios({
+          method: 'patch',
+          url: `${API_URL}/accounts/users/${user.value.id}/profile_img/`,
+          headers: {
+            Authorization: `Token ${token.value}`,
+          },
+          data: { profile_img: payload.profile_img },
+        });
+        console.log('Profile image updated:', profileImgResponse.data);
+      }
+
+      user.value = { ...user.value, ...payload };
+      console.log('Profile updated:', user.value);
+    } catch (err) {
+      console.error('Error updating profile:', err);
+      alert('Failed to update profile.');
+      throw err;
     }
+  };
 
-    // 닉네임이 있다면 nickname 변경 요청 (PATCH)
-    if (payload.nickname) {
-      const nicknameResponse = await axios({
-        method: 'patch',
-        url: `${API_URL}/accounts/users/${user.value.id}/nickname/`,  // 사용자 ID로 닉네임 변경
-        headers: {
-          Authorization: `Token ${token.value}`,
-        },
-        data: { nickname: payload.nickname },
-      });
-      console.log('Nickname updated:', nicknameResponse.data);
-    }
-
-    // 프로필 이미지가 있다면 profile_img 변경 요청 (PATCH)
-    if (payload.profile_img) {
-      const profileImgResponse = await axios({
-        method: 'patch',
-        url: `${API_URL}/accounts/users/${user.value.id}/profile_img/`,  // 사용자 ID로 프로필 이미지 변경
-        headers: {
-          Authorization: `Token ${token.value}`,
-        },
-        data: { profile_img: payload.profile_img },
-      });
-      console.log('Profile image updated:', profileImgResponse.data);
-    }
-
-    // 로컬 사용자 데이터 업데이트
-    user.value = { ...user.value, ...payload };
-    console.log('Profile updated:', user.value);
-  } catch (err) {
-    console.error('Error updating profile:', err); // 에러가 발생하면 자세한 로그 확인
-    alert('Failed to update profile.'); // 오류 메시지
-    throw err; // 에러를 다시 던져서 상위 레벨에서 처리할 수 있도록 함
+  // 테스트 결과 관련 새로운 함수들 추가
+  const setTestResult = function(result) {
+    testResult.value = result
+    console.log('Test result saved:', result)
   }
 
+  const clearTestResult = function() {
+    testResult.value = null
+    console.log('Test result cleared')
+  }
 
-};
-  
-
-  return { tests, API_URL, getTests, signUp, logIn, token, logOut, user, updateProfile }
+  return { 
+    tests, 
+    API_URL, 
+    getTests, 
+    signUp, 
+    logIn, 
+    token, 
+    logOut, 
+    user, 
+    updateProfile,
+    testResult,  // 테스트 결과 상태 추가
+    setTestResult,  // 테스트 결과 설정 함수
+    clearTestResult  // 테스트 결과 초기화 함수
+  }
 }, {persist: true})
-
