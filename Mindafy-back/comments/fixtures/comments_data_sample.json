@@ -45,7 +45,7 @@
       "user": 3,
       "test": 2,
       "parent_comment": null,
-      "content": "이 테스트를 통해 나 자신에 대해 다시 생각해보게 되었어요.",
+      "content": "나도 티니핑 ㅠㅠ.",
       "recommendation_count": 12,
       "created_at": "2024-10-16T15:35:11.668655",
       "updated_at": "2024-10-16T15:35:11.668655"
@@ -199,7 +199,7 @@
     "pk": 16,
     "fields": {
       "user": 14,
-      "test": 19,
+      "test": 8,
       "parent_comment": 5,
       "content": "결과가 저와 비슷해서 더 신뢰가 가네요.",
       "recommendation_count": 11,
@@ -537,7 +537,7 @@
     "pk": 42,
     "fields": {
       "user": 17,
-      "test": 19,
+      "test": 9,
       "parent_comment": 28,
       "content": "문항이 좀 더 구체적이면 더 좋았을 것 같아요. 그래도 결과가 유익했습니다.",
       "recommendation_count": 3,
@@ -732,7 +732,7 @@
       "pk": 42,
       "fields": {
         "user": 17,
-        "test": 19,
+        "test": 10,
         "parent_comment": 28,
         "content": "문항이 좀 더 구체적이면 더 좋았을 것 같아요. 그래도 결과가 유익했습니다.",
         "recommendation_count": 3,
@@ -797,7 +797,7 @@
         "pk": 47,
         "fields": {
           "user": 2,
-          "test": 18,
+          "test": 4,
           "parent_comment": null,
           "content": "결과가 정말 정확해서 놀랐습니다. 친구들에게 꼭 추천해야겠어요.",
           "recommendation_count": 16,
@@ -823,7 +823,7 @@
         "pk": 49,
         "fields": {
           "user": 11,
-          "test": 17,
+          "test": 12,
           "parent_comment": null,
           "content": "문항도 괜찮았고, 결과도 꽤 잘 맞았어요. 좋은 테스트였습니다.",
           "recommendation_count": 5,
@@ -836,7 +836,7 @@
         "pk": 50,
         "fields": {
           "user": 18,
-          "test": 19,
+          "test": 6,
           "parent_comment": 43,
           "content": "문항이 흥미롭고, 예상보다 더 재미있게 진행됐어요.",
           "recommendation_count": 7,
@@ -864,7 +864,7 @@
           "user": 6,
           "test": 1,
           "parent_comment": null,
-          "content": "이 테스트를 통해 자기 자신에 대해 좀 더 잘 알게 된 것 같아요.",
+          "content": "투자하고 싶은게 생겼어요.",
           "recommendation_count": 18,
           "created_at": "2024-11-12T08:12:11.668655",
           "updated_at": "2024-11-12T08:12:11.668655"
@@ -939,7 +939,7 @@
         "model": "comments.comment",
         "pk": 58,
         "fields": {
-          "user": 17,
+          "user": 15,
           "test": 11,
           "parent_comment": null,
           "content": "자기 성격에 대해 더욱 알아갈 수 있는 좋은 테스트였습니다.",
@@ -953,7 +953,7 @@
         "pk": 59,
         "fields": {
           "user": 18,
-          "test": 19,
+          "test": 7,
           "parent_comment": 28,
           "content": "성격 분석이 잘 맞아서 정말 흥미로웠습니다.",
           "recommendation_count": 9,
@@ -1057,7 +1057,7 @@
           "pk": 82,
           "fields": {
             "user": 6,
-            "test": 17,
+            "test": 16,
             "parent_comment": 1,
             "content": "정확한 성격 분석으로 자기 자신을 잘 알게 됐어요. 매우 유익한 경험이었습니다.",
             "recommendation_count": 9,
@@ -1148,7 +1148,7 @@
           "pk": 89,
           "fields": {
             "user": 8,
-            "test": 18,
+            "test": 3,
             "parent_comment": null,
             "content": "결과가 정말 정확했어요. 성격에 대한 이해도가 높아졌습니다.",
             "recommendation_count": 11,
@@ -1161,7 +1161,7 @@
           "pk": 90,
           "fields": {
             "user": 10,
-            "test": 2,
+            "test": 13,
             "parent_comment": 1,
             "content": "성격 분석이 정말 정확해서 다시 한 번 해보고 싶어요. 훌륭한 테스트였습니다.",
             "recommendation_count": 10,
@@ -1265,7 +1265,7 @@
             "pk": 98,
             "fields": {
               "user": 2,
-              "test": 19,
+              "test": 14,
               "parent_comment": 1,
               "content": "이 테스트는 정말 유익하고 결과도 매우 정확해서 친구들에게 추천할 예정입니다.",
               "recommendation_count": 10,
