@@ -1,7 +1,5 @@
-<!-- Survey.View.vue -->
 <template>
     <div v-if="test">
-      <!-- <RouterLink :to="{ name: 'test' }">MainPage</RouterLink> -->
       <h1>{{ test.title }}의 설문조사 페이지입니다.</h1>
       <SurveyList 
         :testId="test.id"
@@ -17,20 +15,19 @@
 </template>
 
 <script setup>
-import { ref,onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import axios from 'axios';
 import { useCounterStore } from '@/stores/counter';
 import SurveyList from '@/components/SurveyList.vue';
 import router from '@/router';
 
-
 const route = useRoute()
 const store = useCounterStore()
 const test = ref(null)
 const surveys = ref(null)
-
 const theResult = ref(null)
+
 onMounted(()=>{
     //test 정보 받아오기
     axios({
@@ -40,7 +37,6 @@ onMounted(()=>{
         .then((res)=>{
             test.value = res.data
             console.log(res.data);
-            
         })
         .catch(err=>console.log(err))
 
@@ -106,15 +102,18 @@ const submitSurvey = async () => {
         console.log('알고리즘 함수 작동 성공.');
         console.log(`이것은 알고리즘 작동 성공 후 resData입니다. : ${JSON.stringify(calculateResponse.data)}`);
 
-        // 모든 처리가 완료된 후 결과 페이지로 이동
-        router.push({ name: 'result' });
+        // Pinia store에 결과 저장
+        store.setTestResult(calculateResponse.data);
+
+        // 결과 페이지로 이동
+        router.push({ 
+            name: 'result',
+        });
     } catch (err) {
         console.error('오류 발생:', err);
         alert('처리 중 오류가 발생했습니다.');
     }
 };
-
-
 </script>
 
 <style scoped>
@@ -130,7 +129,7 @@ h1 {
 button {
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #1D63FF; /* Primary blue color */
+    background-color: #1D63FF;
     color: #FFFFFF;
     border: none;
     border-radius: 5px;
@@ -138,6 +137,6 @@ button {
 }
 
 button:hover {
-    background-color: #155ab3; /* Slightly darker blue for hover */
+    background-color: #155ab3;
 }
 </style>
