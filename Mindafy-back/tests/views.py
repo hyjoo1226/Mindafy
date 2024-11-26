@@ -13,6 +13,7 @@ from surveys.models import SurveyAnswer, SurveyOption, SurveyQuestion
 from .models import Test, TestResult
 from finance.models import DepositProducts, SavingProducts, EtfProducts, DepositOptions, SavingOptions
 from .serializers import TestSerializer, TestResultSerializer
+from finance.serializers import DepositProductsSerializer, DepositOptionsSerializer, SavingOptionsSerializer, SavingProductsSerializer
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
@@ -158,16 +159,23 @@ def calculate_test1_result(request, test_result_id):
     q4_option = SurveyOption.objects.get(question=q4_answer.question, option_number=q4_answer.answer_value)
     selected_bank = q4_option.option_text
 
+
+    
     if q3_value == '1':
         deposits = DepositProducts.objects.filter(kor_co_nm=selected_bank)
         deposits_with_options = []
         for deposit in deposits:
+            deposit_serializer = DepositProductsSerializer(deposit)
+
             options = DepositOptions.objects.filter(product=deposit)
+            options_serializer = DepositOptionsSerializer(options, many=True)
+            
             deposit_data = {
-                'product': deposit,
-                'options': list(options.values('intr_rate', 'intr_rate2', 'save_trm'))  # 필요한 옵션 값만 포함
+                'product': deposit_serializer.data,
+                'options': options_serializer.data
             }
             deposits_with_options.append(deposit_data)
+
         test_result.deposit_product = deposits.first()
         test_result.saving_product = None
         test_result.etf_product = None
@@ -180,16 +188,20 @@ def calculate_test1_result(request, test_result_id):
         savings = SavingProducts.objects.filter(kor_co_nm=selected_bank)
         savings_with_options = []
         for saving in savings:
+            saving_serializer = SavingProductsSerializer(saving)
+
             options = SavingOptions.objects.filter(product=saving)
+            options_serializer = SavingOptionsSerializer(options, many=True)
+
             saving_data = {
-                'product': saving,
-                'options': list(options.values('intr_rate', 'intr_rate2', 'save_trm', 'rsrv_type_nm', 'intr_rate_type'))  # 필요한 옵션 값만 포함
+                'product': saving_serializer.data,
+                'options': options_serializer.data
             }
             savings_with_options.append(saving_data)
         test_result.deposit_product = None
         test_result.saving_product = savings.first()
         test_result.etf_product = None
-        products_data = savings
+        products_data = savings_with_options
         if psy_type == '저위험':
             match = '자극추구와 위험회피 성향을 분석한 결과, 투자 목적과 일치합니다.'
         # test_result.investment_product = None
@@ -202,7 +214,7 @@ def calculate_test1_result(request, test_result_id):
             ).order_by('-abs_fltRt')[:5]  # 절댓값 기준 내림차순 정렬
             test_result.deposit_product = None
             test_result.saving_product = None
-            test_result.etf_product = etfs.fitst()
+            test_result.etf_product = etfs.first()
             products_data = etfs
             if psy_type == '고위험':
                 match = '자극추구와 위험회피 성향을 분석한 결과, 투자 목적과 일치합니다.'
@@ -221,7 +233,8 @@ def calculate_test1_result(request, test_result_id):
         'match': match,
         'result_type': result_type,
         'description': description,
-        'products': list(products_data.values())
+        'products': products_data
+        # 'products': list(products_data.values())
     }
 
     # result_data = {
@@ -234,7 +247,7 @@ def calculate_test1_result(request, test_result_id):
     test_result.save()
 
     return Response({
-        **attribute_data,
+        **attribute_data
         # **result_data
     }, status=status.HTTP_200_OK)
 
