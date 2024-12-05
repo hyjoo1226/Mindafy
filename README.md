@@ -114,18 +114,25 @@ Mindafy
 ## 실행화면
 - 시작 페이지
 ![시작 페이지](./etc/page_img/시작페이지.png)
+<br/><br/>
 - 메인 페이지
 ![메인 페이지](./etc/page_img/메인페이지.png)
+<br/><br/>
 - 회원가입 페이지
 ![회원가입 페이지](./etc/page_img/회원가입페이지.png)
+<br/><br/>
 - 로그인 페이지
 ![로그인 페이지](./etc/page_img/로그인페이지.png)
+<br/><br/>
 - 프로필 수정 페이지
 ![프로필 수정 페이지](./etc/page_img/프로필수정페이지.png)
+<br/><br/>
 - 테스트 페이지
 ![테스트 페이지](./etc/page_img/테스트페이지.png)
+<br/><br/>
 - 설문 페이지
 ![설문 페이지](./etc/page_img/설문페이지.png)
+<br/><br/>
 - 결과 페이지
 ![결과 페이지](./etc/page_img/결과페이지1.png)
 ![결과 페이지2](./etc/page_img/결과페이지2.png)
