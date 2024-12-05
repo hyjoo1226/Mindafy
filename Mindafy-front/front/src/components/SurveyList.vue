@@ -1,9 +1,9 @@
 <!-- SurveyList.vue -->
 <template>
     <div v-for="survey in surveys">
-        <h2>
+        <!-- <h2>
             {{ survey.title }}
-        </h2>
+        </h2> -->
         <SurveyListItem :survey="survey" @update-answers="updateAnswers"/>
     </div>
 </template>

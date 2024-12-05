@@ -2,12 +2,12 @@
 <template>
 <div>
     <!-- <RouterLink :to="{name:'test'}">MainPage</RouterLink> -->
-    <h1>LogIn View</h1>
+    <!-- <h1>LogIn View</h1> -->
     <form @submit.prevent="logIn">
-        <label for="username">id : </label>
+        <label for="username">아이디</label>
         <input type="text" id="username" v-model.trim="username"><br>
 
-        <label for="password">password : </label>
+        <label for="password">비밀번호</label>
         <input type="password" id="password" v-model.trim="password"><br>
 
         <input type="submit" value="logIn">
@@ -56,6 +56,7 @@ form {
 label {
     margin-bottom: 5px;
     font-weight: bold;
+    text-align: left;
 }
 
 input[type="text"],

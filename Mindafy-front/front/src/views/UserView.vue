@@ -2,29 +2,29 @@
 <template>
 <div>
     <!-- <RouterLink :to="{name:'test'}">MainPage</RouterLink> -->
-    <h1>My Profile Page</h1>
+    <h1>프로필 수정</h1>
     <form @submit.prevent="updateProfile">
-        <label for="nickname">Nickname : </label>
+        <label for="nickname">닉네임</label>
         <input type="text" id="nickname" v-model="nickname" />
         <br>
         
-        <label for="old-password">Old Password : </label>
+        <label for="old-password">기존 비밀번호</label>
         <input type="password" id="old-password" v-model="oldPassword" />
         <br>
         
-        <label for="new-password1">New Password : </label>
+        <label for="new-password1">새 비밀번호</label>
         <input type="password" id="new-password1" v-model="newPassword1" />
         <br>
         
-        <label for="new-password2">Confirm New Password : </label>
+        <label for="new-password2">새 비밀번호 확인</label>
         <input type="password" id="new-password2" v-model="newPassword2" />
         <br>
         
-        <label for="profile-img">Profile Image : </label>
+        <!-- <label for="profile-img">Profile Image : </label>
         <input type="text" id="profile-img" v-model="profileImg" />
-        <br>
+        <br> -->
         
-        <button type="submit">Save Changes</button>
+        <button type="submit">변경하기</button>
     </form>
     <!-- <LogOut/> -->
     <!-- <p>Email : {{ store.user.email }}</p>
@@ -88,6 +88,7 @@ form {
 label {
     margin-bottom: 5px;
     font-weight: bold;
+    text-align: left;
 }
 
 input[type="text"],

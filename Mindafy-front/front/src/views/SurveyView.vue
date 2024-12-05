@@ -1,6 +1,6 @@
 <template>
     <div v-if="test">
-      <h1>{{ test.title }}의 설문조사 페이지입니다.</h1>
+      <h1>{{ test.title }}</h1>
       <SurveyList 
         :testId="test.id"
         @update-answers="updateAnswers"
