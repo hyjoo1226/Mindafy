@@ -1,0 +1,672 @@
+[
+    {
+        "model": "surveys.survey",  
+        "pk": 1,
+        "fields": {
+            "test": "1",
+            "title": "심리검사",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.survey",  
+        "pk": 2,
+        "fields": {
+            "test": "1",
+            "title": "금융설문",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 1,
+        "fields": {
+            "survey": "2",
+            "question": "내 금융상품에 대한 이해 수준은?",
+            "question_number": "1",
+            "question_type": "객관식",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 2,
+        "fields": {
+            "survey": "2",
+            "question": "내 금융투자 경험은?",
+            "question_number": "2",
+            "question_type": "객관식",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 3,
+        "fields": {
+            "survey": "2",
+            "question": "내 금융투자 목적은?",
+            "question_number": "3",
+            "question_type": "객관식",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 4,
+        "fields": {
+            "survey": "2",
+            "question": "내 주거래 은행은?",
+            "question_number": "4",
+            "question_type": "객관식",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 5,
+        "fields": {
+            "survey": "1",
+            "question": "나는 새로운 직장이나 학교로 옮길 때 불안감을 느낀다",
+            "question_number": "1",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 6,
+        "fields": {
+            "survey": "1",
+            "question": "나는 충동적으로 온라인 쇼핑을 하는 경우가 많다",
+            "question_number": "2",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 7,
+        "fields": {
+            "survey": "1",
+            "question": "나는 중요한 결정을 내리기 전에 주변 사람들의 의견을 많이 듣는 편이다",
+            "question_number": "3",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 8,
+        "fields": {
+            "survey": "1",
+            "question": "나는 새로운 맛집이나 카페를 찾아다니는 것을 즐긴다",
+            "question_number": "4",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 9,
+        "fields": {
+            "survey": "1",
+            "question": "나는 처음 보는 사람들과 단체 카톡방에서 대화하는 것이 불편하다",
+            "question_number": "5",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 10,
+        "fields": {
+            "survey": "1",
+            "question": "나는 회사나 학교의 규칙을 가끔 어기더라도 재미있는 일을 하고 싶다",
+            "question_number": "6",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 11,
+        "fields": {
+            "survey": "1",
+            "question": "나는 실수할 가능성이 있는 업무나 과제를 맡기 꺼려한다",
+            "question_number": "7",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 12,
+        "fields": {
+            "survey": "1",
+            "question": "나는 번지점프나 스카이다이빙 같은 익스트림 스포츠를 해보고 싶다",
+            "question_number": "8",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 13,
+        "fields": {
+            "survey": "1",
+            "question": "나는 갑작스러운 일정 변경이 생기면 스트레스를 받는다",
+            "question_number": "9",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 14,
+        "fields": {
+            "survey": "1",
+            "question": "나는 즉흥적으로 여행을 떠나는 것을 좋아한다",
+            "question_number": "10",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 15,
+        "fields": {
+            "survey": "1",
+            "question": "나는 대중교통보다는 안전하다고 생각되는 개인 차량을 선호한다",
+            "question_number": "11",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 16,
+        "fields": {
+            "survey": "1",
+            "question": "나는 매일 같은 일상에 쉽게 지루함을 느낀다",
+            "question_number": "12",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 17,
+        "fields": {
+            "survey": "1",
+            "question": "나는 회사나 학교에서 발표를 해야 할 때 긴장된다",
+            "question_number": "13",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 18,
+        "fields": {
+            "survey": "1",
+            "question": "나는 새로운 기술이나 앱을 남들보다 먼저 사용해보고 싶어한다",
+            "question_number": "14",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 19,
+        "fields": {
+            "survey": "1",
+            "question": "나는 SNS에 글을 올릴 때 다른 사람들의 반응을 많이 신경 쓴다",
+            "question_number": "15",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 20,
+        "fields": {
+            "survey": "1",
+            "question": "나는 스릴 넘치는 놀이기구를 타는 것을 좋아한다",
+            "question_number": "16",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 21,
+        "fields": {
+            "survey": "1",
+            "question": "나는 새로운 앱이나 기술을 사용하는 것보다 익숙한 방식을 고수하는 편이다",
+            "question_number": "17",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 22,
+        "fields": {
+            "survey": "1",
+            "question": "나는 계획 없이 당일치기로 여행을 떠나는 것을 즐긴다",
+            "question_number": "18",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 23,
+        "fields": {
+            "survey": "1",
+            "question": "나는 미래의 경제 상황이나 취업 전망에 대해 자주 걱정한다",
+            "question_number": "19",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 24,
+        "fields": {
+            "survey": "1",
+            "question": "나는 위험하다고 여겨지는 지역이나 장소를 탐험해보고 싶다",
+            "question_number": "20",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 25,
+        "fields": {
+            "survey": "1",
+            "question": "나는 처음 가보는 식당이나 카페에 혼자 가는 것을 꺼린다",
+            "question_number": "21",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 26,
+        "fields": {
+            "survey": "1",
+            "question": "나는 종종 기분 내키는 대로 행동한다",
+            "question_number": "22",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 27,
+        "fields": {
+            "survey": "1",
+            "question": "나는 주식이나 암호화폐 투자에 대해 신중한 편이다",
+            "question_number": "23",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 28,
+        "fields": {
+            "survey": "1",
+            "question": "나는 새로운 음식이나 퓨전 요리를 시도하는 것을 좋아한다",
+            "question_number": "24",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 29,
+        "fields": {
+            "survey": "1",
+            "question": "나는 새로운 프로젝트를 시작할 때 실패할까봐 망설인다",
+            "question_number": "25",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 30,
+        "fields": {
+            "survey": "1",
+            "question": "나는 예측 불가능한 상황이나 사람을 만나는 것이 흥미롭다",
+            "question_number": "26",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 31,
+        "fields": {
+            "survey": "1",
+            "question": "나는 해외여행을 갈 때 철저한 계획을 세우지 않으면 불안하다",
+            "question_number": "27",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 32,
+        "fields": {
+            "survey": "1",
+            "question": "나는 안정적인 직장보다는 도전적이고 변화가 많은 일을 선호한다",
+            "question_number": "28",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 33,
+        "fields": {
+            "survey": "1",
+            "question": "나는 번화가나 복잡한 지하철에서 쉽게 피로를 느낀다",
+            "question_number": "29",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyquestion",  
+        "pk": 34,
+        "fields": {
+            "survey": "1",
+            "question": "나는 새로운 취미나 동호회 활동을 자주 시작한다",
+            "question_number": "30",
+            "question_type": "7",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 1,
+        "fields": {
+            "question": "1",
+            "option_number": "1",
+            "option_text": "금융상품을 비롯한 모든 투자대상 상품의 차이를 이해할 수 있어요",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 2,
+        "fields": {
+            "question": "1",
+            "option_number": "2",
+            "option_text": "투자할 수 있는 대부분의 금융상품의 차이를 구별할 수는 있어요",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 3,
+        "fields": {
+            "question": "1",
+            "option_number": "3",
+            "option_text": "금융상품에 대한 기본 개념만 알고 있어요",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 4,
+        "fields": {
+            "question": "1",
+            "option_number": "4",
+            "option_text": "금융상품에 대해 아무것도 몰라요",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 5,
+        "fields": {
+            "question": "2",
+            "option_number": "1",
+            "option_text": "선물, 옵션, ELW, 파생상품펀드(ETF)",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 6,
+        "fields": {
+            "question": "2",
+            "option_number": "2",
+            "option_text": "주식, 주식형펀드, ELS/DLS, 투자자문·일임, 외화자산, 신탁",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 7,
+        "fields": {
+            "question": "2",
+            "option_number": "3",
+            "option_text": "혼합형펀드, 회사채, CP, 단기사채, 채권형펀드",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 8,
+        "fields": {
+            "question": "2",
+            "option_number": "4",
+            "option_text": "예금, CMA, MMF, RP, 국공채",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 9,
+        "fields": {
+            "question": "2",
+            "option_number": "5",
+            "option_text": "금융투자를 안해봤어요",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 10,
+        "fields": {
+            "question": "3",
+            "option_number": "1",
+            "option_text": "안전하게 목돈을 관리하고 싶어요",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 11,
+        "fields": {
+            "question": "3",
+            "option_number": "2",
+            "option_text": "목돈 마련을 위해 꾸준히 저축하고 싶어요",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 12,
+        "fields": {
+            "question": "3",
+            "option_number": "3",
+            "option_text": "위험부담이 있어도 고수익을 얻고 싶어요",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 13,
+        "fields": {
+            "question": "4",
+            "option_number": "1",
+            "option_text": "국민은행",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 14,
+        "fields": {
+            "question": "4",
+            "option_number": "2",
+            "option_text": "신한은행",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 15,
+        "fields": {
+            "question": "4",
+            "option_number": "3",
+            "option_text": "우리은행",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 16,
+        "fields": {
+            "question": "4",
+            "option_number": "4",
+            "option_text": "하나은행",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 17,
+        "fields": {
+            "question": "4",
+            "option_number": "5",
+            "option_text": "농협은행",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 18,
+        "fields": {
+            "question": "4",
+            "option_number": "6",
+            "option_text": "기업은행",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 19,
+        "fields": {
+            "question": "4",
+            "option_number": "7",
+            "option_text": "지방은행(부산, 대구, 광주, 경남 등)",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 20,
+        "fields": {
+            "question": "4",
+            "option_number": "8",
+            "option_text": "특수은행(산업, 수협, 새마을금고, 우체국 등)",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 21,
+        "fields": {
+            "question": "4",
+            "option_number": "9",
+            "option_text": "인터넷 전문은행 (카카오뱅크, 케이뱅크 등)",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    },
+    {
+        "model": "surveys.surveyoption",  
+        "pk": 22,
+        "fields": {
+            "question": "4",
+            "option_number": "10",
+            "option_text": "외국계 은행 (SC제일, HSBC 등)",
+            "created_at": "2024-11-25T10:13:00Z",
+            "updated_at": "2024-11-25T10:13:00Z"
+        }
+    }
+]

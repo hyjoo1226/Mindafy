@@ -1,0 +1,45 @@
+Mindafy
+¦§¦¡Mindafy-back
+¦¢  ¦§¦¡accounts
+¦¢  ¦§¦¡comments
+¦¢  ¦¢  ¦§¦¡fixtures
+¦¢  ¦§¦¡finance
+¦¢  ¦§¦¡likes
+¦¢  ¦§¦¡mindafy
+¦¢  ¦§¦¡static
+¦¢  ¦¢  ¦§¦¡test_img
+¦¢  ¦¢  ¦¦¦¡test_results
+¦¢  ¦¢      ¦¦¦¡test1
+¦¢  ¦§¦¡staticfiles
+¦¢  ¦§¦¡surveys
+¦¢  ¦¢  ¦§¦¡fixtures
+¦¢  ¦§¦¡tests
+¦¢  ¦¢  ¦§¦¡fixtures
+¦¦¦¡Mindafy-front
+    ¦¦¦¡front
+        ¦¦¦¡src
+            ¦§¦¡components
+	¦¢  ¦§¦¡CommentList
+	¦¢  ¦§¦¡CommentListItem
+	¦¢  ¦§¦¡Logout
+	¦¢  ¦§¦¡SurveyList
+	¦¢  ¦§¦¡SurveyListItem
+	¦¢  ¦§¦¡SurveyListItemOp
+	¦¢  ¦§¦¡TestList
+	¦¢  ¦§¦¡TestListItem
+            ¦§¦¡router
+            ¦§¦¡stores
+            ¦¦¦¡views
+	¦¢  ¦§¦¡CreateView
+	¦¢  ¦§¦¡DetailView
+	¦¢  ¦§¦¡LogInView
+	¦¢  ¦§¦¡ResultETFView
+	¦¢  ¦§¦¡ResultJukView
+	¦¢  ¦§¦¡ResultView
+	¦¢  ¦§¦¡SignUpView
+	¦¢  ¦§¦¡StartView
+	¦¢  ¦§¦¡SurveyView
+	¦¢  ¦§¦¡TestView
+	¦¢  ¦§¦¡UserView
+  	¦§¦¡App
+

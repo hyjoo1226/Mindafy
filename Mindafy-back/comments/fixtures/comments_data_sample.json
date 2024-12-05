@@ -1,0 +1,1309 @@
+[
+  {
+    "model": "comments.comment",
+    "pk": 1,
+    "fields": {
+      "user": 6,
+      "test": 3,
+      "parent_comment": null,
+      "content": "이 테스트 정말 재미있네요! 친구들한테도 추천하고 싶어요.",
+      "recommendation_count": 15,
+      "created_at": "2024-10-15T09:23:11.668655",
+      "updated_at": "2024-10-15T09:23:11.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 2,
+    "fields": {
+      "user": 8,
+      "test": 3,
+      "parent_comment": 1,
+      "content": "저도 해봤는데 결과가 너무 정확해서 놀랐어요!",
+      "recommendation_count": 7,
+      "created_at": "2024-10-15T10:15:22.668655",
+      "updated_at": "2024-10-15T10:15:22.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 3,
+    "fields": {
+      "user": 12,
+      "test": 5,
+      "parent_comment": null,
+      "content": "문항이 참신하고 재미있게 구성되어 있네요.",
+      "recommendation_count": 9,
+      "created_at": "2024-10-16T14:23:11.668655",
+      "updated_at": "2024-10-16T14:23:11.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 4,
+    "fields": {
+      "user": 3,
+      "test": 2,
+      "parent_comment": null,
+      "content": "나도 티니핑 ㅠㅠ.",
+      "recommendation_count": 12,
+      "created_at": "2024-10-16T15:35:11.668655",
+      "updated_at": "2024-10-16T15:35:11.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 5,
+    "fields": {
+      "user": 15,
+      "test": 7,
+      "parent_comment": null,
+      "content": "정말 유익한 테스트였어요! 결과도 적중하고 재미있었습니다.",
+      "recommendation_count": 8,
+      "created_at": "2024-10-17T11:22:00.668655",
+      "updated_at": "2024-10-17T11:22:00.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 6,
+    "fields": {
+      "user": 9,
+      "test": 4,
+      "parent_comment": 2,
+      "content": "결과가 이렇게 정확하다니, 다음에는 더 많은 문항을 추가해주세요.",
+      "recommendation_count": 5,
+      "created_at": "2024-10-17T16:05:32.668655",
+      "updated_at": "2024-10-17T16:05:32.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 7,
+    "fields": {
+      "user": 16,
+      "test": 6,
+      "parent_comment": null,
+      "content": "단순하지만 흥미로운 테스트였습니다. 해볼만해요.",
+      "recommendation_count": 3,
+      "created_at": "2024-10-18T09:01:45.668655",
+      "updated_at": "2024-10-18T09:01:45.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 8,
+    "fields": {
+      "user": 20,
+      "test": 10,
+      "parent_comment": null,
+      "content": "테스트 결과가 내 성격과 비슷해서 정말 놀랐습니다.",
+      "recommendation_count": 20,
+      "created_at": "2024-10-18T10:13:22.668655",
+      "updated_at": "2024-10-18T10:13:22.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 9,
+    "fields": {
+      "user": 24,
+      "test": 1,
+      "parent_comment": null,
+      "content": "다소 예상외의 결과였지만 재미있었어요!",
+      "recommendation_count": 4,
+      "created_at": "2024-10-19T12:22:13.668655",
+      "updated_at": "2024-10-19T12:22:13.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 10,
+    "fields": {
+      "user": 11,
+      "test": 15,
+      "parent_comment": null,
+      "content": "시간을 보낼 만한 가치가 있는 테스트였습니다.",
+      "recommendation_count": 6,
+      "created_at": "2024-10-20T13:24:18.668655",
+      "updated_at": "2024-10-20T13:24:18.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 11,
+    "fields": {
+      "user": 7,
+      "test": 9,
+      "parent_comment": 3,
+      "content": "맞아요, 문항이 참신하고 독특했어요. 유익한 시간이었어요.",
+      "recommendation_count": 10,
+      "created_at": "2024-10-21T09:10:11.668655",
+      "updated_at": "2024-10-21T09:10:11.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 12,
+    "fields": {
+      "user": 18,
+      "test": 13,
+      "parent_comment": 4,
+      "content": "그렇죠! 결과가 꽤 정확했어요. 다른 사람들도 해보세요.",
+      "recommendation_count": 2,
+      "created_at": "2024-10-21T11:22:55.668655",
+      "updated_at": "2024-10-21T11:22:55.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 13,
+    "fields": {
+      "user": 6,
+      "test": 14,
+      "parent_comment": null,
+      "content": "결과가 제 성격과 일치해서 더 놀라웠어요.",
+      "recommendation_count": 19,
+      "created_at": "2024-10-22T08:44:45.668655",
+      "updated_at": "2024-10-22T08:44:45.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 14,
+    "fields": {
+      "user": 10,
+      "test": 16,
+      "parent_comment": 9,
+      "content": "해본 결과가 제 예상과 맞아서 더 흥미로웠어요.",
+      "recommendation_count": 9,
+      "created_at": "2024-10-22T15:12:39.668655",
+      "updated_at": "2024-10-22T15:12:39.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 15,
+    "fields": {
+      "user": 17,
+      "test": 11,
+      "parent_comment": null,
+      "content": "디자인과 내용이 너무 좋아요. 또 해보고 싶네요.",
+      "recommendation_count": 14,
+      "created_at": "2024-10-23T13:56:11.668655",
+      "updated_at": "2024-10-23T13:56:11.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 16,
+    "fields": {
+      "user": 14,
+      "test": 8,
+      "parent_comment": 5,
+      "content": "결과가 저와 비슷해서 더 신뢰가 가네요.",
+      "recommendation_count": 11,
+      "created_at": "2024-10-23T14:03:11.668655",
+      "updated_at": "2024-10-23T14:03:11.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 17,
+    "fields": {
+      "user": 4,
+      "test": 2,
+      "parent_comment": 8,
+      "content": "이 테스트 진짜 재미있네요! 저도 친구들에게 추천할게요.",
+      "recommendation_count": 10,
+      "created_at": "2024-10-25T10:22:00.668655",
+      "updated_at": "2024-10-25T10:22:00.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 18,
+    "fields": {
+      "user": 13,
+      "test": 8,
+      "parent_comment": null,
+      "content": "정확한 분석이 돋보이는 테스트입니다. 추천해요!",
+      "recommendation_count": 7,
+      "created_at": "2024-10-25T13:42:22.668655",
+      "updated_at": "2024-10-25T13:42:22.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 19,
+    "fields": {
+      "user": 18,
+      "test": 3,
+      "parent_comment": 12,
+      "content": "맞아요! 저는 이런 성격 테스트를 좋아해요. 다만 질문이 좀 더 다양하면 좋겠어요.",
+      "recommendation_count": 8,
+      "created_at": "2024-10-26T10:02:44.668655",
+      "updated_at": "2024-10-26T10:02:44.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 20,
+    "fields": {
+      "user": 2,
+      "test": 4,
+      "parent_comment": null,
+      "content": "전체적인 구성과 질문이 정말 재밌고 창의적이에요.",
+      "recommendation_count": 6,
+      "created_at": "2024-10-26T11:55:12.668655",
+      "updated_at": "2024-10-26T11:55:12.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 21,
+    "fields": {
+      "user": 15,
+      "test": 10,
+      "parent_comment": 7,
+      "content": "결과에 대해 좀 더 구체적인 해설이 추가되면 좋겠네요.",
+      "recommendation_count": 5,
+      "created_at": "2024-10-27T14:42:35.668655",
+      "updated_at": "2024-10-27T14:42:35.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 22,
+    "fields": {
+      "user": 11,
+      "test": 12,
+      "parent_comment": null,
+      "content": "다양한 문항으로 테스트의 신뢰도가 높아지는 것 같아요.",
+      "recommendation_count": 4,
+      "created_at": "2024-10-27T15:32:11.668655",
+      "updated_at": "2024-10-27T15:32:11.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 23,
+    "fields": {
+      "user": 19,
+      "test": 5,
+      "parent_comment": 10,
+      "content": "이런 테스트는 처음 해봤어요. 결과가 너무 신기하고 재미있습니다.",
+      "recommendation_count": 9,
+      "created_at": "2024-10-28T09:00:45.668655",
+      "updated_at": "2024-10-28T09:00:45.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 24,
+    "fields": {
+      "user": 6,
+      "test": 11,
+      "parent_comment": null,
+      "content": "매우 흥미로웠어요. 결과가 예상보다 정확했습니다.",
+      "recommendation_count": 14,
+      "created_at": "2024-10-28T10:45:22.668655",
+      "updated_at": "2024-10-28T10:45:22.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 25,
+    "fields": {
+      "user": 17,
+      "test": 14,
+      "parent_comment": null,
+      "content": "성격이 잘 드러나는 테스트였습니다. 친구들에게 공유하고 싶어요.",
+      "recommendation_count": 5,
+      "created_at": "2024-10-29T09:12:11.668655",
+      "updated_at": "2024-10-29T09:12:11.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 26,
+    "fields": {
+      "user": 7,
+      "test": 13,
+      "parent_comment": 14,
+      "content": "결과가 정말 정확했어요. 좀 더 구체적인 분석이 추가되면 좋겠어요.",
+      "recommendation_count": 12,
+      "created_at": "2024-10-29T11:43:55.668655",
+      "updated_at": "2024-10-29T11:43:55.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 27,
+    "fields": {
+      "user": 10,
+      "test": 8,
+      "parent_comment": 16,
+      "content": "테스트가 전반적으로 신뢰성이 높고 재미있었습니다.",
+      "recommendation_count": 7,
+      "created_at": "2024-10-30T13:22:00.668655",
+      "updated_at": "2024-10-30T13:22:00.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 28,
+    "fields": {
+      "user": 13,
+      "test": 9,
+      "parent_comment": null,
+      "content": "테스트 결과가 제 성격과 맞아서 놀랐어요. 꼭 해보세요!",
+      "recommendation_count": 18,
+      "created_at": "2024-10-30T15:45:33.668655",
+      "updated_at": "2024-10-30T15:45:33.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 29,
+    "fields": {
+      "user": 8,
+      "test": 16,
+      "parent_comment": 4,
+      "content": "흥미로운 테스트였습니다. 특히 결과가 제 성격을 잘 반영한 것 같아요.",
+      "recommendation_count": 6,
+      "created_at": "2024-10-31T09:23:10.668655",
+      "updated_at": "2024-10-31T09:23:10.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 30,
+    "fields": {
+      "user": 2,
+      "test": 1,
+      "parent_comment": null,
+      "content": "결과가 정말 신기하고, 다른 사람들도 해보라고 추천하고 싶어요.",
+      "recommendation_count": 4,
+      "created_at": "2024-10-31T12:13:11.668655",
+      "updated_at": "2024-10-31T12:13:11.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 31,
+    "fields": {
+      "user": 19,
+      "test": 12,
+      "parent_comment": null,
+      "content": "이 테스트는 정말 정확하게 제 성격을 맞혀줬어요. 친구들에게 추천합니다!",
+      "recommendation_count": 20,
+      "created_at": "2024-11-01T08:32:11.668655",
+      "updated_at": "2024-11-01T08:32:11.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 32,
+    "fields": {
+      "user": 6,
+      "test": 15,
+      "parent_comment": 18,
+      "content": "결과가 맞는 것 같아서 놀랐어요! 진지하게 성격을 알아보는 기회가 되었습니다.",
+      "recommendation_count": 17,
+      "created_at": "2024-11-02T12:15:44.668655",
+      "updated_at": "2024-11-02T12:15:44.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 33,
+    "fields": {
+      "user": 16,
+      "test": 3,
+      "parent_comment": 25,
+      "content": "문항이 잘 구성되어 있어서 결과가 더 신뢰가 갔어요. 제 성격을 잘 알게 된 것 같아요.",
+      "recommendation_count": 9,
+      "created_at": "2024-11-02T14:22:00.668655",
+      "updated_at": "2024-11-02T14:22:00.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 34,
+    "fields": {
+      "user": 2,
+      "test": 7,
+      "parent_comment": null,
+      "content": "대부분의 문항이 제 상황에 잘 맞아서 놀랐어요. 진지하게 생각해볼 기회가 되었어요.",
+      "recommendation_count": 8,
+      "created_at": "2024-11-03T09:05:22.668655",
+      "updated_at": "2024-11-03T09:05:22.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 35,
+    "fields": {
+      "user": 14,
+      "test": 9,
+      "parent_comment": 13,
+      "content": "좀 더 다양한 성격 유형이 포함되면 더 좋았을 것 같아요. 그래도 재미있었습니다.",
+      "recommendation_count": 6,
+      "created_at": "2024-11-03T11:45:10.668655",
+      "updated_at": "2024-11-03T11:45:10.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 36,
+    "fields": {
+      "user": 7,
+      "test": 11,
+      "parent_comment": 22,
+      "content": "성격에 대한 통찰을 주는 테스트였어요. 좀 더 심도 깊은 질문이 있었으면 좋겠네요.",
+      "recommendation_count": 11,
+      "created_at": "2024-11-04T12:30:33.668655",
+      "updated_at": "2024-11-04T12:30:33.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 37,
+    "fields": {
+      "user": 18,
+      "test": 10,
+      "parent_comment": null,
+      "content": "결과가 정확한 것 같아요. 추천해요.",
+      "recommendation_count": 14,
+      "created_at": "2024-11-04T14:18:00.668655",
+      "updated_at": "2024-11-04T14:18:00.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 38,
+    "fields": {
+      "user": 9,
+      "test": 8,
+      "parent_comment": 31,
+      "content": "많은 도움이 되었습니다. 하지만 문항을 더 세분화하면 더 좋을 것 같아요.",
+      "recommendation_count": 5,
+      "created_at": "2024-11-05T15:25:55.668655",
+      "updated_at": "2024-11-05T15:25:55.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 39,
+    "fields": {
+      "user": 3,
+      "test": 6,
+      "parent_comment": 29,
+      "content": "결과가 제 성격과 일치해서 좋았어요. 친구에게도 공유하고 싶네요.",
+      "recommendation_count": 19,
+      "created_at": "2024-11-05T17:10:33.668655",
+      "updated_at": "2024-11-05T17:10:33.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 40,
+    "fields": {
+      "user": 11,
+      "test": 14,
+      "parent_comment": 35,
+      "content": "성격을 알아가는 재미가 있었어요. 더 많은 문항이 추가되면 좋겠습니다.",
+      "recommendation_count": 8,
+      "created_at": "2024-11-06T09:35:10.668655",
+      "updated_at": "2024-11-06T09:35:10.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 41,
+    "fields": {
+      "user": 6,
+      "test": 13,
+      "parent_comment": null,
+      "content": "흥미롭고 재미있었습니다. 더 다양한 질문이 있었으면 좋겠어요.",
+      "recommendation_count": 15,
+      "created_at": "2024-11-06T12:20:22.668655",
+      "updated_at": "2024-11-06T12:20:22.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 42,
+    "fields": {
+      "user": 17,
+      "test": 9,
+      "parent_comment": 28,
+      "content": "문항이 좀 더 구체적이면 더 좋았을 것 같아요. 그래도 결과가 유익했습니다.",
+      "recommendation_count": 3,
+      "created_at": "2024-11-07T10:02:33.668655",
+      "updated_at": "2024-11-07T10:02:33.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 43,
+    "fields": {
+      "user": 8,
+      "test": 7,
+      "parent_comment": null,
+      "content": "문항 하나하나가 정말 잘 구성되었고, 결과도 꽤 정확하다고 느꼈어요.",
+      "recommendation_count": 12,
+      "created_at": "2024-11-07T11:45:22.668655",
+      "updated_at": "2024-11-07T11:45:22.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 44,
+    "fields": {
+      "user": 13,
+      "test": 5,
+      "parent_comment": 21,
+      "content": "성격을 알아보는 재미있는 테스트였어요. 재미있었고, 공유하고 싶어요.",
+      "recommendation_count": 9,
+      "created_at": "2024-11-08T14:02:00.668655",
+      "updated_at": "2024-11-08T14:02:00.668655"
+    }
+  },
+  {
+    "model": "comments.comment",
+    "pk": 45,
+    "fields": {
+      "user": 14,
+      "test": 16,
+      "parent_comment": 39,
+      "content": "이 테스트를 통해 좀 더 나를 알게 된 기분이에요. 흥미로웠습니다.",
+      "recommendation_count": 10,
+      "created_at": "2024-11-08T16:20:33.668655",
+      "updated_at": "2024-11-08T16:20:33.668655"
+    }
+  },
+    {
+      "model": "comments.comment",
+      "pk": 31,
+      "fields": {
+        "user": 19,
+        "test": 12,
+        "parent_comment": null,
+        "content": "이 테스트는 정말 정확하게 제 성격을 맞혀줬어요. 친구들에게 추천합니다!",
+        "recommendation_count": 20,
+        "created_at": "2024-11-01T08:32:11.668655",
+        "updated_at": "2024-11-01T08:32:11.668655"
+      }
+    },
+    {
+      "model": "comments.comment",
+      "pk": 32,
+      "fields": {
+        "user": 6,
+        "test": 15,
+        "parent_comment": 18,
+        "content": "결과가 맞는 것 같아서 놀랐어요! 진지하게 성격을 알아보는 기회가 되었습니다.",
+        "recommendation_count": 17,
+        "created_at": "2024-11-02T12:15:44.668655",
+        "updated_at": "2024-11-02T12:15:44.668655"
+      }
+    },
+    {
+      "model": "comments.comment",
+      "pk": 33,
+      "fields": {
+        "user": 16,
+        "test": 3,
+        "parent_comment": 25,
+        "content": "문항이 잘 구성되어 있어서 결과가 더 신뢰가 갔어요. 제 성격을 잘 알게 된 것 같아요.",
+        "recommendation_count": 9,
+        "created_at": "2024-11-02T14:22:00.668655",
+        "updated_at": "2024-11-02T14:22:00.668655"
+      }
+    },
+    {
+      "model": "comments.comment",
+      "pk": 34,
+      "fields": {
+        "user": 2,
+        "test": 7,
+        "parent_comment": null,
+        "content": "대부분의 문항이 제 상황에 잘 맞아서 놀랐어요. 진지하게 생각해볼 기회가 되었어요.",
+        "recommendation_count": 8,
+        "created_at": "2024-11-03T09:05:22.668655",
+        "updated_at": "2024-11-03T09:05:22.668655"
+      }
+    },
+    {
+      "model": "comments.comment",
+      "pk": 35,
+      "fields": {
+        "user": 14,
+        "test": 9,
+        "parent_comment": 13,
+        "content": "좀 더 다양한 성격 유형이 포함되면 더 좋았을 것 같아요. 그래도 재미있었습니다.",
+        "recommendation_count": 6,
+        "created_at": "2024-11-03T11:45:10.668655",
+        "updated_at": "2024-11-03T11:45:10.668655"
+      }
+    },
+    {
+      "model": "comments.comment",
+      "pk": 36,
+      "fields": {
+        "user": 7,
+        "test": 11,
+        "parent_comment": 22,
+        "content": "성격에 대한 통찰을 주는 테스트였어요. 좀 더 심도 깊은 질문이 있었으면 좋겠네요.",
+        "recommendation_count": 11,
+        "created_at": "2024-11-04T12:30:33.668655",
+        "updated_at": "2024-11-04T12:30:33.668655"
+      }
+    },
+    {
+      "model": "comments.comment",
+      "pk": 37,
+      "fields": {
+        "user": 18,
+        "test": 10,
+        "parent_comment": null,
+        "content": "결과가 정확한 것 같아요. 추천해요.",
+        "recommendation_count": 14,
+        "created_at": "2024-11-04T14:18:00.668655",
+        "updated_at": "2024-11-04T14:18:00.668655"
+      }
+    },
+    {
+      "model": "comments.comment",
+      "pk": 38,
+      "fields": {
+        "user": 9,
+        "test": 8,
+        "parent_comment": 31,
+        "content": "많은 도움이 되었습니다. 하지만 문항을 더 세분화하면 더 좋을 것 같아요.",
+        "recommendation_count": 5,
+        "created_at": "2024-11-05T15:25:55.668655",
+        "updated_at": "2024-11-05T15:25:55.668655"
+      }
+    },
+    {
+      "model": "comments.comment",
+      "pk": 39,
+      "fields": {
+        "user": 3,
+        "test": 6,
+        "parent_comment": 29,
+        "content": "결과가 제 성격과 일치해서 좋았어요. 친구에게도 공유하고 싶네요.",
+        "recommendation_count": 19,
+        "created_at": "2024-11-05T17:10:33.668655",
+        "updated_at": "2024-11-05T17:10:33.668655"
+      }
+    },
+    {
+      "model": "comments.comment",
+      "pk": 40,
+      "fields": {
+        "user": 11,
+        "test": 14,
+        "parent_comment": 35,
+        "content": "성격을 알아가는 재미가 있었어요. 더 많은 문항이 추가되면 좋겠습니다.",
+        "recommendation_count": 8,
+        "created_at": "2024-11-06T09:35:10.668655",
+        "updated_at": "2024-11-06T09:35:10.668655"
+      }
+    },
+    {
+      "model": "comments.comment",
+      "pk": 41,
+      "fields": {
+        "user": 6,
+        "test": 13,
+        "parent_comment": null,
+        "content": "흥미롭고 재미있었습니다. 더 다양한 질문이 있었으면 좋겠어요.",
+        "recommendation_count": 15,
+        "created_at": "2024-11-06T12:20:22.668655",
+        "updated_at": "2024-11-06T12:20:22.668655"
+      }
+    },
+    {
+      "model": "comments.comment",
+      "pk": 42,
+      "fields": {
+        "user": 17,
+        "test": 10,
+        "parent_comment": 28,
+        "content": "문항이 좀 더 구체적이면 더 좋았을 것 같아요. 그래도 결과가 유익했습니다.",
+        "recommendation_count": 3,
+        "created_at": "2024-11-07T10:02:33.668655",
+        "updated_at": "2024-11-07T10:02:33.668655"
+      }
+    },
+    {
+      "model": "comments.comment",
+      "pk": 43,
+      "fields": {
+        "user": 8,
+        "test": 7,
+        "parent_comment": null,
+        "content": "문항 하나하나가 정말 잘 구성되었고, 결과도 꽤 정확하다고 느꼈어요.",
+        "recommendation_count": 12,
+        "created_at": "2024-11-07T11:45:22.668655",
+        "updated_at": "2024-11-07T11:45:22.668655"
+      }
+    },
+    {
+      "model": "comments.comment",
+      "pk": 44,
+      "fields": {
+        "user": 13,
+        "test": 5,
+        "parent_comment": 21,
+        "content": "성격을 알아보는 재미있는 테스트였어요. 재미있었고, 공유하고 싶어요.",
+        "recommendation_count": 9,
+        "created_at": "2024-11-08T14:02:00.668655",
+        "updated_at": "2024-11-08T14:02:00.668655"
+      }
+    },
+    {
+      "model": "comments.comment",
+      "pk": 45,
+      "fields": {
+        "user": 14,
+        "test": 16,
+        "parent_comment": 39,
+        "content": "이 테스트를 통해 좀 더 나를 알게 된 기분이에요. 흥미로웠습니다.",
+        "recommendation_count": 10,
+        "created_at": "2024-11-08T16:20:33.668655",
+        "updated_at": "2024-11-08T16:20:33.668655"
+      }
+    },
+      {
+        "model": "comments.comment",
+        "pk": 46,
+        "fields": {
+          "user": 6,
+          "test": 12,
+          "parent_comment": 22,
+          "content": "저도 성격이 딱 맞는 결과가 나와서 매우 만족했어요!",
+          "recommendation_count": 14,
+          "created_at": "2024-11-09T13:45:55.668655",
+          "updated_at": "2024-11-09T13:45:55.668655"
+        }
+      },
+      {
+        "model": "comments.comment",
+        "pk": 47,
+        "fields": {
+          "user": 2,
+          "test": 4,
+          "parent_comment": null,
+          "content": "결과가 정말 정확해서 놀랐습니다. 친구들에게 꼭 추천해야겠어요.",
+          "recommendation_count": 16,
+          "created_at": "2024-11-09T15:25:11.668655",
+          "updated_at": "2024-11-09T15:25:11.668655"
+        }
+      },
+      {
+        "model": "comments.comment",
+        "pk": 48,
+        "fields": {
+          "user": 3,
+          "test": 10,
+          "parent_comment": 30,
+          "content": "질문이 전반적으로 매우 적절하고 신뢰성 높은 결과를 주네요.",
+          "recommendation_count": 10,
+          "created_at": "2024-11-10T10:02:33.668655",
+          "updated_at": "2024-11-10T10:02:33.668655"
+        }
+      },
+      {
+        "model": "comments.comment",
+        "pk": 49,
+        "fields": {
+          "user": 11,
+          "test": 12,
+          "parent_comment": null,
+          "content": "문항도 괜찮았고, 결과도 꽤 잘 맞았어요. 좋은 테스트였습니다.",
+          "recommendation_count": 5,
+          "created_at": "2024-11-10T11:35:44.668655",
+          "updated_at": "2024-11-10T11:35:44.668655"
+        }
+      },
+      {
+        "model": "comments.comment",
+        "pk": 50,
+        "fields": {
+          "user": 18,
+          "test": 6,
+          "parent_comment": 43,
+          "content": "문항이 흥미롭고, 예상보다 더 재미있게 진행됐어요.",
+          "recommendation_count": 7,
+          "created_at": "2024-11-11T09:11:22.668655",
+          "updated_at": "2024-11-11T09:11:22.668655"
+        }
+      },
+      {
+        "model": "comments.comment",
+        "pk": 51,
+        "fields": {
+          "user": 8,
+          "test": 13,
+          "parent_comment": 40,
+          "content": "개인적으로 흥미로운 테스트였어요. 다만 문항 수가 조금 더 많았으면 좋겠어요.",
+          "recommendation_count": 6,
+          "created_at": "2024-11-11T10:30:00.668655",
+          "updated_at": "2024-11-11T10:30:00.668655"
+        }
+      },
+      {
+        "model": "comments.comment",
+        "pk": 52,
+        "fields": {
+          "user": 6,
+          "test": 1,
+          "parent_comment": null,
+          "content": "투자하고 싶은게 생겼어요.",
+          "recommendation_count": 18,
+          "created_at": "2024-11-12T08:12:11.668655",
+          "updated_at": "2024-11-12T08:12:11.668655"
+        }
+      },
+      {
+        "model": "comments.comment",
+        "pk": 53,
+        "fields": {
+          "user": 13,
+          "test": 15,
+          "parent_comment": 33,
+          "content": "아주 정확한 결과였어요. 친구들에게 추천할 정도로 유익했습니다.",
+          "recommendation_count": 4,
+          "created_at": "2024-11-12T10:55:33.668655",
+          "updated_at": "2024-11-12T10:55:33.668655"
+        }
+      },
+      {
+        "model": "comments.comment",
+        "pk": 54,
+        "fields": {
+          "user": 10,
+          "test": 14,
+          "parent_comment": null,
+          "content": "결과가 매우 흥미롭고, 나에 대해 조금 더 알아가는 기회가 됐어요.",
+          "recommendation_count": 14,
+          "created_at": "2024-11-13T12:32:55.668655",
+          "updated_at": "2024-11-13T12:32:55.668655"
+        }
+      },
+      {
+        "model": "comments.comment",
+        "pk": 55,
+        "fields": {
+          "user": 9,
+          "test": 4,
+          "parent_comment": 42,
+          "content": "전체적으로 잘 구성되었지만 문항이 조금 더 많았으면 좋겠습니다.",
+          "recommendation_count": 3,
+          "created_at": "2024-11-13T13:18:33.668655",
+          "updated_at": "2024-11-13T13:18:33.668655"
+        }
+      },
+      {
+        "model": "comments.comment",
+        "pk": 56,
+        "fields": {
+          "user": 4,
+          "test": 16,
+          "parent_comment": null,
+          "content": "테스트 결과가 매우 정확하고 흥미로웠어요. 추천합니다.",
+          "recommendation_count": 8,
+          "created_at": "2024-11-14T11:22:00.668655",
+          "updated_at": "2024-11-14T11:22:00.668655"
+        }
+      },
+      {
+        "model": "comments.comment",
+        "pk": 57,
+        "fields": {
+          "user": 12,
+          "test": 3,
+          "parent_comment": 15,
+          "content": "테스트를 통해 제 성격에 대해 더 잘 알게 된 기회가 되었어요. 흥미로웠습니다.",
+          "recommendation_count": 5,
+          "created_at": "2024-11-14T12:05:11.668655",
+          "updated_at": "2024-11-14T12:05:11.668655"
+        }
+      },
+      {
+        "model": "comments.comment",
+        "pk": 58,
+        "fields": {
+          "user": 15,
+          "test": 11,
+          "parent_comment": null,
+          "content": "자기 성격에 대해 더욱 알아갈 수 있는 좋은 테스트였습니다.",
+          "recommendation_count": 6,
+          "created_at": "2024-11-15T08:15:22.668655",
+          "updated_at": "2024-11-15T08:15:22.668655"
+        }
+      },
+      {
+        "model": "comments.comment",
+        "pk": 59,
+        "fields": {
+          "user": 18,
+          "test": 7,
+          "parent_comment": 28,
+          "content": "성격 분석이 잘 맞아서 정말 흥미로웠습니다.",
+          "recommendation_count": 9,
+          "created_at": "2024-11-15T09:22:33.668655",
+          "updated_at": "2024-11-15T09:22:33.668655"
+        }
+      },
+      {
+        "model": "comments.comment",
+        "pk": 60,
+        "fields": {
+          "user": 14,
+          "test": 5,
+          "parent_comment": 21,
+          "content": "너무 흥미롭고 신기한 테스트였습니다. 친구들에게도 꼭 해보라고 추천할 거예요.",
+          "recommendation_count": 10,
+          "created_at": "2024-11-16T10:03:11.668655",
+          "updated_at": "2024-11-16T10:03:11.668655"
+        }
+      },
+        {
+          "model": "comments.comment",
+          "pk": 76,
+          "fields": {
+            "user": 4,
+            "test": 13,
+            "parent_comment": null,
+            "content": "정확한 성격 분석이 나와서 흥미로웠습니다. 친구들에게 추천할 예정입니다.",
+            "recommendation_count": 12,
+            "created_at": "2024-11-24T08:45:00.668655",
+            "updated_at": "2024-11-24T08:45:00.668655"
+          }
+        },
+        {
+          "model": "comments.comment",
+          "pk": 77,
+          "fields": {
+            "user": 18,
+            "test": 2,
+            "parent_comment": 1,
+            "content": "좋은 테스트였어요. 결과가 너무 정확해서 놀랐습니다.",
+            "recommendation_count": 9,
+            "created_at": "2024-11-24T10:20:33.668655",
+            "updated_at": "2024-11-24T10:20:33.668655"
+          }
+        },
+        {
+          "model": "comments.comment",
+          "pk": 78,
+          "fields": {
+            "user": 9,
+            "test": 15,
+            "parent_comment": null,
+            "content": "문항도 흥미롭고 결과도 정확해서 즐겁게 테스트를 진행했어요.",
+            "recommendation_count": 6,
+            "created_at": "2024-11-25T09:11:00.668655",
+            "updated_at": "2024-11-25T09:11:00.668655"
+          }
+        },
+        {
+          "model": "comments.comment",
+          "pk": 79,
+          "fields": {
+            "user": 3,
+            "test": 16,
+            "parent_comment": 1,
+            "content": "이 성격 분석은 정말 정확하고 유익했습니다. 나에 대해 더 알게 되었어요.",
+            "recommendation_count": 8,
+            "created_at": "2024-11-25T10:45:22.668655",
+            "updated_at": "2024-11-25T10:45:22.668655"
+          }
+        },
+        {
+          "model": "comments.comment",
+          "pk": 80,
+          "fields": {
+            "user": 14,
+            "test": 10,
+            "parent_comment": null,
+            "content": "결과가 매우 맞았어요. 문항도 직관적이고 좋았습니다.",
+            "recommendation_count": 7,
+            "created_at": "2024-11-26T08:35:00.668655",
+            "updated_at": "2024-11-26T08:35:00.668655"
+          }
+        },
+        {
+          "model": "comments.comment",
+          "pk": 81,
+          "fields": {
+            "user": 16,
+            "test": 4,
+            "parent_comment": 50,
+            "content": "흥미로운 테스트였습니다. 친구들이랑 다 해봤고, 모두 매우 만족했어요.",
+            "recommendation_count": 12,
+            "created_at": "2024-11-26T10:12:11.668655",
+            "updated_at": "2024-11-26T10:12:11.668655"
+          }
+        },
+        {
+          "model": "comments.comment",
+          "pk": 82,
+          "fields": {
+            "user": 6,
+            "test": 16,
+            "parent_comment": 1,
+            "content": "정확한 성격 분석으로 자기 자신을 잘 알게 됐어요. 매우 유익한 경험이었습니다.",
+            "recommendation_count": 9,
+            "created_at": "2024-11-27T08:45:33.668655",
+            "updated_at": "2024-11-27T08:45:33.668655"
+          }
+        },
+        {
+          "model": "comments.comment",
+          "pk": 83,
+          "fields": {
+            "user": 11,
+            "test": 6,
+            "parent_comment": null,
+            "content": "성격을 잘 분석해주는 테스트였어요. 결과가 꽤 정확했습니다.",
+            "recommendation_count": 11,
+            "created_at": "2024-11-27T10:20:55.668655",
+            "updated_at": "2024-11-27T10:20:55.668655"
+          }
+        },
+        {
+          "model": "comments.comment",
+          "pk": 84,
+          "fields": {
+            "user": 12,
+            "test": 3,
+            "parent_comment": 1,
+            "content": "자기 성격을 파악하는데 아주 도움이 됐어요. 추천합니다!",
+            "recommendation_count": 10,
+            "created_at": "2024-11-28T09:05:22.668655",
+            "updated_at": "2024-11-28T09:05:22.668655"
+          }
+        },
+        {
+          "model": "comments.comment",
+          "pk": 85,
+          "fields": {
+            "user": 6,
+            "test": 13,
+            "parent_comment": null,
+            "content": "이 테스트는 정말 재미있었고 성격을 잘 파악할 수 있었어요.",
+            "recommendation_count": 7,
+            "created_at": "2024-11-28T11:32:00.668655",
+            "updated_at": "2024-11-28T11:32:00.668655"
+          }
+        },
+        {
+          "model": "comments.comment",
+          "pk": 86,
+          "fields": {
+            "user": 15,
+            "test": 14,
+            "parent_comment": 83,
+            "content": "테스트의 문항이 정말 흥미롭고 정확하게 나를 분석해줬어요.",
+            "recommendation_count": 8,
+            "created_at": "2024-11-29T08:40:11.668655",
+            "updated_at": "2024-11-29T08:40:11.668655"
+          }
+        },
+        {
+          "model": "comments.comment",
+          "pk": 87,
+          "fields": {
+            "user": 17,
+            "test": 5,
+            "parent_comment": null,
+            "content": "좋은 결과를 얻었어요. 성격에 대해 더 많이 알게 됐습니다.",
+            "recommendation_count": 6,
+            "created_at": "2024-11-29T09:25:33.668655",
+            "updated_at": "2024-11-29T09:25:33.668655"
+          }
+        },
+        {
+          "model": "comments.comment",
+          "pk": 88,
+          "fields": {
+            "user": 3,
+            "test": 16,
+            "parent_comment": 1,
+            "content": "테스트가 재미있었고, 결과도 매우 정확했습니다. 친구들에게 추천할게요.",
+            "recommendation_count": 9,
+            "created_at": "2024-11-30T08:35:11.668655",
+            "updated_at": "2024-11-30T08:35:11.668655"
+          }
+        },
+        {
+          "model": "comments.comment",
+          "pk": 89,
+          "fields": {
+            "user": 8,
+            "test": 3,
+            "parent_comment": null,
+            "content": "결과가 정말 정확했어요. 성격에 대한 이해도가 높아졌습니다.",
+            "recommendation_count": 11,
+            "created_at": "2024-11-30T10:25:44.668655",
+            "updated_at": "2024-11-30T10:25:44.668655"
+          }
+        },
+        {
+          "model": "comments.comment",
+          "pk": 90,
+          "fields": {
+            "user": 10,
+            "test": 13,
+            "parent_comment": 1,
+            "content": "성격 분석이 정말 정확해서 다시 한 번 해보고 싶어요. 훌륭한 테스트였습니다.",
+            "recommendation_count": 10,
+            "created_at": "2024-12-01T09:00:00.668655",
+            "updated_at": "2024-12-01T09:00:00.668655"
+          }
+        },
+          {
+            "model": "comments.comment",
+            "pk": 91,
+            "fields": {
+              "user": 13,
+              "test": 9,
+              "parent_comment": null,
+              "content": "결과가 매우 정확했어요. 제 성격에 대해 많은 것을 배웠습니다.",
+              "recommendation_count": 14,
+              "created_at": "2024-12-01T10:35:22.668655",
+              "updated_at": "2024-12-01T10:35:22.668655"
+            }
+          },
+          {
+            "model": "comments.comment",
+            "pk": 92,
+            "fields": {
+              "user": 4,
+              "test": 8,
+              "parent_comment": 86,
+              "content": "이 테스트는 정말 정확하고 유익한 정보가 많아서 재미있었어요.",
+              "recommendation_count": 8,
+              "created_at": "2024-12-02T09:40:00.668655",
+              "updated_at": "2024-12-02T09:40:00.668655"
+            }
+          },
+          {
+            "model": "comments.comment",
+            "pk": 93,
+            "fields": {
+              "user": 17,
+              "test": 5,
+              "parent_comment": 82,
+              "content": "성격 분석이 제 성향을 정말 잘 맞혀서 놀랐어요. 추천하고 싶어요.",
+              "recommendation_count": 11,
+              "created_at": "2024-12-02T10:55:33.668655",
+              "updated_at": "2024-12-02T10:55:33.668655"
+            }
+          },
+          {
+            "model": "comments.comment",
+            "pk": 94,
+            "fields": {
+              "user": 18,
+              "test": 3,
+              "parent_comment": null,
+              "content": "테스트가 굉장히 정확했어요. 내 성격에 대한 새로운 관점을 얻었습니다.",
+              "recommendation_count": 7,
+              "created_at": "2024-12-03T08:30:44.668655",
+              "updated_at": "2024-12-03T08:30:44.668655"
+            }
+          },
+          {
+            "model": "comments.comment",
+            "pk": 95,
+            "fields": {
+              "user": 19,
+              "test": 15,
+              "parent_comment": 89,
+              "content": "정확한 성격 분석을 통해 많은 것을 알게 되었어요. 정말 흥미로웠습니다.",
+              "recommendation_count": 9,
+              "created_at": "2024-12-03T10:20:11.668655",
+              "updated_at": "2024-12-03T10:20:11.668655"
+            }
+          },
+          {
+            "model": "comments.comment",
+            "pk": 96,
+            "fields": {
+              "user": 20,
+              "test": 16,
+              "parent_comment": null,
+              "content": "재미있게 테스트를 했고, 결과가 매우 적중했어요. 친구들도 해보길 권장합니다.",
+              "recommendation_count": 12,
+              "created_at": "2024-12-04T09:30:00.668655",
+              "updated_at": "2024-12-04T09:30:00.668655"
+            }
+          },
+          {
+            "model": "comments.comment",
+            "pk": 97,
+            "fields": {
+              "user": 11,
+              "test": 14,
+              "parent_comment": 90,
+              "content": "성격에 대한 깊은 통찰을 주는 테스트였습니다. 다시 해보고 싶어요.",
+              "recommendation_count": 6,
+              "created_at": "2024-12-04T10:15:22.668655",
+              "updated_at": "2024-12-04T10:15:22.668655"
+            }
+          },
+          {
+            "model": "comments.comment",
+            "pk": 98,
+            "fields": {
+              "user": 2,
+              "test": 14,
+              "parent_comment": 1,
+              "content": "이 테스트는 정말 유익하고 결과도 매우 정확해서 친구들에게 추천할 예정입니다.",
+              "recommendation_count": 10,
+              "created_at": "2024-12-05T08:45:44.668655",
+              "updated_at": "2024-12-05T08:45:44.668655"
+            }
+          },
+          {
+            "model": "comments.comment",
+            "pk": 99,
+            "fields": {
+              "user": 13,
+              "test": 8,
+              "parent_comment": null,
+              "content": "문항이 다양하고 재미있었어요. 결과도 정확하고 만족스러웠습니다.",
+              "recommendation_count": 8,
+              "created_at": "2024-12-05T09:30:00.668655",
+              "updated_at": "2024-12-05T09:30:00.668655"
+            }
+          },
+          {
+            "model": "comments.comment",
+            "pk": 100,
+            "fields": {
+              "user": 6,
+              "test": 12,
+              "parent_comment": 80,
+              "content": "성격 분석이 정말 정확했어요. 너무 재미있어서 친구들에게 추천했습니다.",
+              "recommendation_count": 11,
+              "created_at": "2024-12-06T10:25:33.668655",
+              "updated_at": "2024-12-06T10:25:33.668655"
+            }
+          }
+        ]
+        
+      
+      
+    
+  
+
+   
