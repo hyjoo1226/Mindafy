@@ -181,7 +181,8 @@ def calculate_test1_result(request, test_result_id):
     '1': 4,  # 1번보기: 4점
     '2': 3,  # 2번보기: 3점
     '3': 2,  # 3번보기: 2점
-    '4': 1   # 4번보기: 1점
+    '4': 1,  # 4번보기: 1점
+    '5': 0   # 5번보기: 0점
     }   
 
     score_sum = sum(

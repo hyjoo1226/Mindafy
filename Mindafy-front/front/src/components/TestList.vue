@@ -1,7 +1,7 @@
 <!-- TestList.vue -->
 <template>
     <div class="test-list">
-      <h3>TestList</h3>
+      <!-- <h3>TestList</h3> -->
       <div class="test-items-container">
           <TestListItem v-for="test in store.tests" :key="test.id" :test="test"/>
       </div>
